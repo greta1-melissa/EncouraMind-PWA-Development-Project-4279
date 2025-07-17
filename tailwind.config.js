@@ -9,7 +9,7 @@ export default {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#3b82f6', // Deeper blue
+          DEFAULT: '#3b82f6',
           50: '#eff6ff',
           100: '#dbeafe',
           200: '#bfdbfe',
@@ -23,7 +23,7 @@ export default {
           950: '#172554',
         },
         accent: {
-          DEFAULT: '#dc2626', // Deeper red
+          DEFAULT: '#dc2626',
           50: '#fef2f2',
           100: '#fee2e2',
           200: '#fecaca',
@@ -37,7 +37,7 @@ export default {
           950: '#450a0a',
         },
         secondary: {
-          DEFAULT: '#f59e0b', // Deeper amber
+          DEFAULT: '#f59e0b',
           50: '#fffbeb',
           100: '#fef3c7',
           200: '#fde68a',
@@ -51,7 +51,7 @@ export default {
           950: '#451a03',
         },
         success: {
-          DEFAULT: '#059669', // Deeper green
+          DEFAULT: '#059669',
           50: '#ecfdf5',
           100: '#d1fae5',
           200: '#a7f3d0',

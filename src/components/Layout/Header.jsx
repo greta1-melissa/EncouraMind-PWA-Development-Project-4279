@@ -37,7 +37,7 @@ const Header = () => {
               alt="EncouraMind Logo" 
               className="w-10 h-10 object-contain"
               onError={(e) => {
-                // Fallback to text logo if image doesn't load
+                // Fallback to gradient logo if image doesn't load
                 e.target.style.display = 'none';
                 e.target.nextElementSibling.style.display = 'flex';
               }}
@@ -142,7 +142,7 @@ const Header = () => {
                 </Link>
                 <Link
                   to="/register"
-                  className="bg-primary-600 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-primary-700 transition-colors shadow-soft"
+                  className="bg-primary text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-primary-700 transition-colors shadow-soft"
                 >
                   Sign Up
                 </Link>
