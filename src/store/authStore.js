@@ -1,24 +1,6 @@
-import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
-import supabase from '../lib/supabase';
-
-// Fallback demo users for development
-const DEMO_USERS = [
-  {
-    id: 1,
-    name: 'Admin User',
-    email: 'admin@example.com',
-    password: 'admin',
-    role: 'admin'
-  },
-  {
-    id: 2,
-    name: 'Demo User',
-    email: 'user@example.com',
-    password: 'password',
-    role: 'user'
-  }
-];
+import { create } from 'zustand'
+import { persist } from 'zustand/middleware'
+import supabase from '../lib/supabase'
 
 export const useAuthStore = create(
   persist(
@@ -26,37 +8,22 @@ export const useAuthStore = create(
       user: null,
       isAuthenticated: false,
       isLoading: false,
+
       login: async (credentials) => {
-        set({ isLoading: true });
+        set({ isLoading: true })
         try {
-          // First try Supabase authentication
           const { data, error } = await supabase.auth.signInWithPassword({
             email: credentials.email,
             password: credentials.password,
-          });
+          })
 
-          if (error) {
-            // Fall back to demo login if Supabase fails
-            console.log("Supabase login failed, trying demo login");
-            const user = DEMO_USERS.find(
-              u => u.email === credentials.email && u.password === credentials.password
-            );
+          if (error) throw error
 
-            if (user) {
-              const { password, ...userWithoutPassword } = user;
-              set({ user: userWithoutPassword, isAuthenticated: true, isLoading: false });
-              return { success: true };
-            }
-
-            throw new Error(error.message || 'Invalid credentials');
-          }
-
-          // Get user profile
           const { data: profile } = await supabase
             .from('profiles_enc01')
             .select('*')
             .eq('id', data.user.id)
-            .single();
+            .single()
 
           const userData = {
             id: data.user.id,
@@ -64,32 +31,26 @@ export const useAuthStore = create(
             name: profile?.name || data.user.email.split('@')[0],
             role: profile?.role || 'user',
             bio: profile?.bio || ''
-          };
+          }
 
-          set({ user: userData, isAuthenticated: true, isLoading: false });
-          return { success: true };
+          set({ user: userData, isAuthenticated: true, isLoading: false })
+          return { success: true }
         } catch (error) {
-          set({ isLoading: false });
-          return { success: false, error: error.message };
+          set({ isLoading: false })
+          return { success: false, error: error.message }
         }
       },
+
       register: async (userData) => {
-        set({ isLoading: true });
+        set({ isLoading: true })
         try {
-          // Register with Supabase
           const { data, error } = await supabase.auth.signUp({
             email: userData.email,
             password: userData.password,
-            options: {
-              data: {
-                name: userData.name,
-              }
-            }
-          });
+          })
 
-          if (error) throw error;
+          if (error) throw error
 
-          // Create a profile record
           if (data.user) {
             const { error: profileError } = await supabase
               .from('profiles_enc01')
@@ -100,89 +61,64 @@ export const useAuthStore = create(
                   email: userData.email,
                   role: 'user'
                 }
-              ]);
+              ])
 
-            if (profileError) throw profileError;
+            if (profileError) throw profileError
           }
 
-          const newUser = {
-            id: data.user.id,
-            name: userData.name,
-            email: userData.email,
-            role: 'user'
-          };
-
-          set({ user: newUser, isAuthenticated: true, isLoading: false });
-          return { success: true };
-        } catch (error) {
-          set({ isLoading: false });
-          return { success: false, error: error.message };
-        }
-      },
-      logout: async () => {
-        try {
-          await supabase.auth.signOut();
-        } catch (error) {
-          console.error('Error signing out:', error);
-        }
-        set({ user: null, isAuthenticated: false });
-      },
-      updateProfile: async (userData) => {
-        try {
-          const currentUser = get().user;
-          if (!currentUser?.id) {
-            throw new Error('No authenticated user found');
-          }
-
-          // Update profile in Supabase
-          const { error } = await supabase
-            .from('profiles_enc01')
-            .update({
+          set({ 
+            user: {
+              id: data.user.id,
               name: userData.name,
-              bio: userData.bio,
-              updated_at: new Date()
-            })
-            .eq('id', currentUser.id);
-
-          if (error) throw error;
-
-          const updatedUser = { ...currentUser, ...userData };
-          set({ user: updatedUser });
-          return { success: true };
+              email: userData.email,
+              role: 'user'
+            }, 
+            isAuthenticated: true, 
+            isLoading: false 
+          })
+          return { success: true }
         } catch (error) {
-          return { success: false, error: error.message };
+          set({ isLoading: false })
+          return { success: false, error: error.message }
         }
       },
-      // Check current session on app load
+
+      logout: async () => {
+        await supabase.auth.signOut()
+        set({ user: null, isAuthenticated: false })
+      },
+
       checkSession: async () => {
         try {
-          const { data, error } = await supabase.auth.getSession();
-
-          if (error || !data.session) {
-            return { success: false };
+          const { data: { session }, error } = await supabase.auth.getSession()
+          
+          if (error || !session) {
+            return { success: false }
           }
 
           const { data: profile } = await supabase
             .from('profiles_enc01')
             .select('*')
-            .eq('id', data.session.user.id)
-            .single();
+            .eq('id', session.user.id)
+            .single()
 
           const userData = {
-            id: data.session.user.id,
-            email: data.session.user.email,
-            name: profile?.name || data.session.user.email.split('@')[0],
+            id: session.user.id,
+            email: session.user.email,
+            name: profile?.name || session.user.email.split('@')[0],
             role: profile?.role || 'user',
             bio: profile?.bio || ''
-          };
+          }
 
-          set({ user: userData, isAuthenticated: true });
-          return { success: true };
+          set({ user: userData, isAuthenticated: true })
+          return { success: true }
         } catch (error) {
-          return { success: false, error: error.message };
+          return { success: false, error: error.message }
         }
       }
     }),
-    { name: 'auth-storage' }
+    {
+      name: 'auth-storage'
+    }
   )
-);
+)
