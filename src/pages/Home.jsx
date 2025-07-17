@@ -50,52 +50,41 @@ const Home = () => {
         <title>EncouraMind — Encouraging Minds, Enriching Lives</title>
         <meta name="description" content="Private mental wellness platform for daily encouragement and support" />
       </Helmet>
-
       <div className="bg-white dark:bg-gray-900 transition-colors duration-300">
         {/* Hero Section */}
         <section className="relative overflow-hidden">
-          <div
-            className="absolute inset-0 bg-cover bg-center opacity-20"
-            style={{
-              backgroundImage: 'url(https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80)'
-            }}
-          ></div>
+          <div className="absolute inset-0 bg-cover bg-center opacity-20" 
+               style={{backgroundImage: 'url(https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80)'}}></div>
           <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-accent/80 to-primary/90"></div>
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
             <div className="text-center">
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
+              <motion.h1 
+                initial={{ opacity: 0, y: 20 }} 
                 animate={{ opacity: 1, y: 0 }}
                 className="text-4xl md:text-6xl font-bold text-white mb-6 font-heading"
               >
                 Encouraging Minds,<br />
-                <span className="text-yellow-300">Enriching Lives</span>
+                <span className="text-secondary">Enriching Lives</span>
               </motion.h1>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }} 
+                animate={{ opacity: 1, y: 0 }} 
                 transition={{ delay: 0.1 }}
                 className="text-xl text-white/90 mb-8 max-w-2xl mx-auto"
               >
                 Your private sanctuary for daily encouragement, mental wellness support, and personal growth. Join a community that believes in your potential.
               </motion.p>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }} 
+                animate={{ opacity: 1, y: 0 }} 
                 transition={{ delay: 0.2 }}
                 className="flex flex-col sm:flex-row gap-4 justify-center"
               >
-                <Link
-                  to="/register"
-                  className="bg-white text-primary px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-colors inline-flex items-center justify-center"
-                >
+                <Link to="/register" className="bg-white text-primary px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-colors inline-flex items-center justify-center">
                   Start Your Journey
                   <SafeIcon icon={FiArrowRight} className="ml-2 w-5 h-5" />
                 </Link>
-                <Link
-                  to="/daily-dose"
-                  className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-primary transition-colors inline-flex items-center justify-center"
-                >
+                <Link to="/daily-dose" className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-primary transition-colors inline-flex items-center justify-center">
                   <SafeIcon icon={FiPlay} className="mr-2 w-5 h-5" />
                   Explore Content
                 </Link>
@@ -107,8 +96,8 @@ const Home = () => {
         {/* Features Section */}
         <section className="py-20 bg-gray-50 dark:bg-gray-800">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }} 
               animate={{ opacity: 1, y: 0 }}
               className="text-center mb-16"
             >
@@ -119,10 +108,9 @@ const Home = () => {
                 We've created a unique platform that combines professional expertise with genuine community support.
               </p>
             </motion.div>
-
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {features.map((feature, index) => (
-                <motion.div
+                <motion.div 
                   key={feature.title}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -147,17 +135,13 @@ const Home = () => {
         {/* Quote of the Day */}
         <section className="py-20">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }} 
               animate={{ opacity: 1, y: 0 }}
               className="relative overflow-hidden rounded-2xl"
             >
-              <div
-                className="absolute inset-0 bg-cover bg-center opacity-10"
-                style={{
-                  backgroundImage: 'url(https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80)'
-                }}
-              ></div>
+              <div className="absolute inset-0 bg-cover bg-center opacity-10" 
+                   style={{backgroundImage: 'url(https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80)'}}></div>
               <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-accent/90"></div>
               <div className="relative p-8 md:p-12 text-center text-white">
                 <h2 className="text-2xl md:text-3xl font-bold mb-6 font-heading">
@@ -167,10 +151,7 @@ const Home = () => {
                   "The only way to do great work is to love what you do. If you haven't found it yet, keep looking. Don't settle."
                 </blockquote>
                 <p className="text-white/80">— Steve Jobs</p>
-                <Link
-                  to="/daily-dose"
-                  className="inline-flex items-center mt-6 bg-white text-primary px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors"
-                >
+                <Link to="/daily-dose" className="inline-flex items-center mt-6 bg-white text-primary px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors">
                   Get Today's Dose
                   <SafeIcon icon={FiArrowRight} className="ml-2 w-4 h-4" />
                 </Link>
@@ -182,8 +163,8 @@ const Home = () => {
         {/* Testimonials */}
         <section className="py-20 bg-gray-50 dark:bg-gray-800">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }} 
               animate={{ opacity: 1, y: 0 }}
               className="text-center mb-16"
             >
@@ -194,10 +175,9 @@ const Home = () => {
                 Real stories from real people who've found hope and healing through EncouraMind.
               </p>
             </motion.div>
-
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {testimonials.map((testimonial, index) => (
-                <motion.div
+                <motion.div 
                   key={testimonial.name}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -206,7 +186,7 @@ const Home = () => {
                 >
                   <div className="flex items-center mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <SafeIcon key={i} icon={FiStar} className="w-5 h-5 text-yellow-400 fill-current" />
+                      <SafeIcon key={i} icon={FiStar} className="w-5 h-5 text-secondary fill-current" />
                     ))}
                   </div>
                   <p className="text-gray-600 dark:text-gray-400 mb-6 italic">
@@ -223,18 +203,11 @@ const Home = () => {
 
         {/* CTA Section */}
         <section className="relative overflow-hidden">
-          <div
-            className="absolute inset-0 bg-cover bg-center opacity-20"
-            style={{
-              backgroundImage: 'url(https://images.unsplash.com/photo-1439066615861-d1af74d74000?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80)'
-            }}
-          ></div>
+          <div className="absolute inset-0 bg-cover bg-center opacity-20" 
+               style={{backgroundImage: 'url(https://images.unsplash.com/photo-1439066615861-d1af74d74000?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80)'}}></div>
           <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-accent/90"></div>
           <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-            >
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 font-heading">
                 Ready to Transform Your Mental Wellness?
               </h2>
@@ -242,17 +215,11 @@ const Home = () => {
                 Join thousands of others who've discovered the power of daily encouragement and community support.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
-                  to="/register"
-                  className="bg-white text-primary px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-colors inline-flex items-center justify-center"
-                >
+                <Link to="/register" className="bg-white text-primary px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-colors inline-flex items-center justify-center">
                   <SafeIcon icon={FiCheck} className="mr-2 w-5 h-5" />
                   Start Free Today
                 </Link>
-                <Link
-                  to="/about"
-                  className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-primary transition-colors inline-flex items-center justify-center"
-                >
+                <Link to="/about" className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-primary transition-colors inline-flex items-center justify-center">
                   Learn More
                 </Link>
               </div>

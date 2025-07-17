@@ -12,28 +12,28 @@ const AdminDashboard = () => {
       value: '1,248',
       icon: FiUsers,
       change: '+12%',
-      color: 'bg-blue-500'
+      color: 'bg-primary'
     },
     {
       name: 'Daily Engagements',
       value: '586',
       icon: FiActivity,
       change: '+18%',
-      color: 'bg-green-500'
+      color: 'bg-accent'
     },
     {
       name: 'Content Items',
       value: '142',
       icon: FiFileText,
       change: '+5%',
-      color: 'bg-purple-500'
+      color: 'bg-secondary'
     },
     {
       name: 'Active Sessions',
       value: '24',
       icon: FiBarChart2,
       change: '-2%',
-      color: 'bg-yellow-500'
+      color: 'bg-primary'
     }
   ];
 
@@ -104,9 +104,7 @@ const AdminDashboard = () => {
                   <p className="text-2xl font-semibold text-gray-900 dark:text-white">{stat.value}</p>
                   <span
                     className={`ml-2 text-xs font-medium ${
-                      stat.change.startsWith('+')
-                        ? 'text-green-600 dark:text-green-400'
-                        : 'text-red-600 dark:text-red-400'
+                      stat.change.startsWith('+') ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'
                     }`}
                   >
                     {stat.change}
@@ -130,7 +128,7 @@ const AdminDashboard = () => {
           <div className="space-y-4">
             {recentActivity.map((activity, index) => (
               <div key={index} className="flex items-center">
-                <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center flex-shrink-0">
+                <div className="w-10 h-10 bg-gradient-to-r from-primary to-accent rounded-full flex items-center justify-center flex-shrink-0">
                   <span className="text-white font-medium text-sm">{activity.user.charAt(0)}</span>
                 </div>
                 <div className="ml-3 flex-1">
@@ -146,7 +144,7 @@ const AdminDashboard = () => {
               </div>
             ))}
           </div>
-          <button className="mt-4 text-sm text-blue-600 dark:text-blue-400 hover:underline">
+          <button className="mt-4 text-sm text-primary dark:text-primary hover:underline">
             View all activity
           </button>
         </motion.div>
@@ -189,16 +187,16 @@ const AdminDashboard = () => {
       >
         <h2 className="text-lg font-medium text-gray-900 dark:text-white mb-4">Quick Actions</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          <button className="bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 p-4 rounded-lg hover:bg-blue-100 dark:hover:bg-blue-900/40 transition-colors">
+          <button className="bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary p-4 rounded-lg hover:bg-primary/20 dark:hover:bg-primary/30 transition-colors">
             Add New User
           </button>
-          <button className="bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400 p-4 rounded-lg hover:bg-purple-100 dark:hover:bg-purple-900/40 transition-colors">
+          <button className="bg-accent/10 dark:bg-accent/20 text-accent dark:text-accent p-4 rounded-lg hover:bg-accent/20 dark:hover:bg-accent/30 transition-colors">
             Create Content
           </button>
           <button className="bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400 p-4 rounded-lg hover:bg-green-100 dark:hover:bg-green-900/40 transition-colors">
             View Reports
           </button>
-          <button className="bg-yellow-50 dark:bg-yellow-900/20 text-yellow-600 dark:text-yellow-400 p-4 rounded-lg hover:bg-yellow-100 dark:hover:bg-yellow-900/40 transition-colors">
+          <button className="bg-secondary/10 dark:bg-secondary/20 text-secondary dark:text-secondary p-4 rounded-lg hover:bg-secondary/20 dark:hover:bg-secondary/30 transition-colors">
             System Settings
           </button>
         </div>

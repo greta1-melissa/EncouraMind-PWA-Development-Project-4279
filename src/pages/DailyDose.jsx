@@ -37,19 +37,13 @@ const DailyDose = () => {
         <title>Daily Dose of Encouragement - EncouraMind</title>
         <meta name="description" content="Get your daily dose of encouragement, affirmations, and positivity to boost your mental wellness." />
       </Helmet>
-
       <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Hero Section */}
           <div className="relative overflow-hidden">
-            <div 
-              className="absolute inset-0 bg-cover bg-center"
-              style={{
-                backgroundImage: 'url(https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80)'
-              }}
-            ></div>
+            <div className="absolute inset-0 bg-cover bg-center" 
+                 style={{backgroundImage: 'url(https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80)'}}></div>
             <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-accent/90"></div>
-            
             <div className="relative pt-16 pb-20 px-6 sm:px-12 rounded-2xl">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -63,7 +57,6 @@ const DailyDose = () => {
                   Start your day with positivity, gratitude, and self-compassion
                 </p>
                 <p className="text-lg mb-8">{currentDate}</p>
-                
                 <div className="inline-flex bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-white/90">
                   <SafeIcon icon={FiSun} className="w-5 h-5 mr-2" />
                   <span>Refresh your mind daily</span>
@@ -83,7 +76,7 @@ const DailyDose = () => {
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white font-heading">
                 Quote of the Day
               </h2>
-              <span className="px-3 py-1 bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300 rounded-full text-sm font-medium">
+              <span className="px-3 py-1 bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary rounded-full text-sm font-medium">
                 {dailyQuote.category}
               </span>
             </div>
@@ -91,15 +84,14 @@ const DailyDose = () => {
               "{dailyQuote.text}"
             </blockquote>
             <p className="text-right text-gray-600 dark:text-gray-400">— {dailyQuote.author}</p>
-
             <div className="flex justify-end mt-4 space-x-2">
-              <button className="p-2 text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary-400 rounded-full transition-colors">
+              <button className="p-2 text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary rounded-full transition-colors">
                 <SafeIcon icon={FiBookmark} className="w-5 h-5" />
               </button>
-              <button className="p-2 text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary-400 rounded-full transition-colors">
+              <button className="p-2 text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary rounded-full transition-colors">
                 <SafeIcon icon={FiShare2} className="w-5 h-5" />
               </button>
-              <button className="p-2 text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary-400 rounded-full transition-colors">
+              <button className="p-2 text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary rounded-full transition-colors">
                 <SafeIcon icon={FiThumbsUp} className="w-5 h-5" />
               </button>
             </div>
@@ -169,7 +161,7 @@ const DailyDose = () => {
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white font-heading">
                 Your Encouragement Streak
               </h2>
-              <div className="flex items-center text-primary dark:text-primary-400">
+              <div className="flex items-center text-primary dark:text-primary">
                 <SafeIcon icon={FiCalendar} className="w-5 h-5 mr-2" />
                 <span className="font-medium">7 Days</span>
               </div>
@@ -189,10 +181,7 @@ const DailyDose = () => {
               ))}
             </div>
             <div className="text-center mt-8">
-              <Link
-                to="/profile"
-                className="inline-flex items-center text-primary dark:text-primary-400 hover:underline"
-              >
+              <Link to="/profile" className="inline-flex items-center text-primary dark:text-primary hover:underline">
                 <span>View your full history</span>
                 <SafeIcon icon={FiArrowRight} className="ml-1 w-4 h-4" />
               </Link>
@@ -209,10 +198,7 @@ const DailyDose = () => {
             <p className="text-xl text-gray-700 dark:text-gray-300 mb-6 max-w-2xl mx-auto">
               Want a personalized daily dose of encouragement delivered to your inbox?
             </p>
-            <Link
-              to="/register"
-              className="inline-flex items-center bg-gradient-to-r from-primary to-accent text-white px-6 py-3 rounded-full font-medium hover:opacity-90 transition-opacity"
-            >
+            <Link to="/register" className="inline-flex items-center bg-gradient-to-r from-primary to-accent text-white px-6 py-3 rounded-full font-medium hover:opacity-90 transition-opacity">
               <span>Get Started for Free</span>
               <SafeIcon icon={FiArrowRight} className="ml-2 w-5 h-5" />
             </Link>

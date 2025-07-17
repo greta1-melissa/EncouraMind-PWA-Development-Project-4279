@@ -25,14 +25,11 @@ const InstallPrompt = () => {
 
   const handleInstall = async () => {
     if (!deferredPrompt) return;
-
     deferredPrompt.prompt();
     const { outcome } = await deferredPrompt.userChoice;
-    
     if (outcome === 'accepted') {
       console.log('PWA installed');
     }
-    
     setDeferredPrompt(null);
     setShowPrompt(false);
   };
@@ -52,10 +49,9 @@ const InstallPrompt = () => {
           className="fixed bottom-4 left-4 right-4 md:left-auto md:right-4 md:w-96 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 p-4 z-50"
         >
           <div className="flex items-start space-x-3">
-            <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center flex-shrink-0">
+            <div className="w-10 h-10 bg-gradient-to-r from-primary to-accent rounded-lg flex items-center justify-center flex-shrink-0">
               <SafeIcon icon={FiDownload} className="w-5 h-5 text-white" />
             </div>
-            
             <div className="flex-1">
               <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-1">
                 Install EncouraMind
@@ -63,11 +59,10 @@ const InstallPrompt = () => {
               <p className="text-xs text-gray-600 dark:text-gray-400 mb-3">
                 Add to your home screen for quick access to daily encouragement
               </p>
-              
               <div className="flex space-x-2">
                 <button
                   onClick={handleInstall}
-                  className="bg-blue-600 text-white px-3 py-1.5 rounded text-xs font-medium hover:bg-blue-700 transition-colors"
+                  className="bg-primary text-white px-3 py-1.5 rounded text-xs font-medium hover:bg-primary-400 transition-colors"
                 >
                   Install
                 </button>
@@ -79,7 +74,6 @@ const InstallPrompt = () => {
                 </button>
               </div>
             </div>
-            
             <button
               onClick={handleDismiss}
               className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"

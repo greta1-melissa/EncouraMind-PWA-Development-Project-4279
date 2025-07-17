@@ -43,7 +43,6 @@ const AdminLayout = () => {
         <meta name="description" content="EncouraMind Admin Dashboard - Manage your mental wellness platform." />
         <meta name="robots" content="noindex,nofollow,noarchive,nosnippet" />
       </Helmet>
-
       <div className="flex h-screen bg-gray-100 dark:bg-gray-900">
         {/* Sidebar for desktop */}
         <aside
@@ -85,7 +84,10 @@ const AdminLayout = () => {
                         : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
                     } ${!isSidebarOpen && 'lg:justify-center'}`}
                   >
-                    <SafeIcon icon={item.icon} className={`w-6 h-6 ${!isSidebarOpen && 'lg:mr-0'}`} />
+                    <SafeIcon
+                      icon={item.icon}
+                      className={`w-6 h-6 ${!isSidebarOpen && 'lg:mr-0'}`}
+                    />
                     {isSidebarOpen && (
                       <span className="ml-3 text-sm font-medium">{item.name}</span>
                     )}

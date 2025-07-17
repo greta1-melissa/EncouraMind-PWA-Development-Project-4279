@@ -3,48 +3,41 @@ import { motion } from 'framer-motion';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../../components/common/SafeIcon';
 
-const { 
-  FiUsers, 
-  FiActivity, 
-  FiBarChart2, 
-  FiCalendar,
-  FiDownload,
-  FiRefreshCw
-} = FiIcons;
+const { FiUsers, FiActivity, FiBarChart2, FiCalendar, FiDownload, FiRefreshCw } = FiIcons;
 
 const AdminAnalytics = () => {
   const metrics = [
-    { 
-      name: 'Total Users', 
-      value: '1,248', 
-      change: '+12%', 
+    {
+      name: 'Total Users',
+      value: '1,248',
+      change: '+12%',
       trend: 'up',
       icon: FiUsers,
-      color: 'bg-blue-500'
+      color: 'bg-primary'
     },
-    { 
-      name: 'Active Sessions', 
-      value: '586', 
-      change: '+18%', 
+    {
+      name: 'Active Sessions',
+      value: '586',
+      change: '+18%',
       trend: 'up',
       icon: FiActivity,
-      color: 'bg-green-500'
+      color: 'bg-accent'
     },
-    { 
-      name: 'Engagement Rate', 
-      value: '68%', 
-      change: '+5%', 
+    {
+      name: 'Engagement Rate',
+      value: '68%',
+      change: '+5%',
       trend: 'up',
       icon: FiBarChart2,
-      color: 'bg-purple-500'
+      color: 'bg-secondary'
     },
-    { 
-      name: 'Avg. Session Time', 
-      value: '8m 24s', 
-      change: '+2%', 
+    {
+      name: 'Avg. Session Time',
+      value: '8m 24s',
+      change: '+2%',
       trend: 'up',
       icon: FiCalendar,
-      color: 'bg-orange-500'
+      color: 'bg-primary'
     },
   ];
 
@@ -57,7 +50,7 @@ const AdminAnalytics = () => {
             <SafeIcon icon={FiRefreshCw} className="w-5 h-5" />
             <span>Refresh</span>
           </button>
-          <button className="flex items-center space-x-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+          <button className="flex items-center space-x-2 bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-400 transition-colors">
             <SafeIcon icon={FiDownload} className="w-5 h-5" />
             <span>Export</span>
           </button>
@@ -81,7 +74,6 @@ const AdminAnalytics = () => {
             <option>Custom Range</option>
           </select>
         </div>
-
         <div className="flex items-center space-x-4">
           <span className="text-gray-700 dark:text-gray-300">Compare to:</span>
           <select className="px-3 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
@@ -110,11 +102,11 @@ const AdminAnalytics = () => {
                 <p className="text-sm font-medium text-gray-500 dark:text-gray-400">{metric.name}</p>
                 <div className="flex items-center">
                   <p className="text-2xl font-semibold text-gray-900 dark:text-white">{metric.value}</p>
-                  <span className={`ml-2 text-xs font-medium ${
-                    metric.trend === 'up' 
-                      ? 'text-green-600 dark:text-green-400' 
-                      : 'text-red-600 dark:text-red-400'
-                  }`}>
+                  <span
+                    className={`ml-2 text-xs font-medium ${
+                      metric.trend === 'up' ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'
+                    }`}
+                  >
                     {metric.change}
                   </span>
                 </div>
@@ -196,15 +188,15 @@ const AdminAnalytics = () => {
           </div>
           <div className="mt-4 flex justify-center space-x-6">
             <div className="flex items-center">
-              <div className="w-3 h-3 bg-blue-500 rounded-full mr-2"></div>
+              <div className="w-3 h-3 bg-primary rounded-full mr-2"></div>
               <span className="text-sm text-gray-600 dark:text-gray-400">Daily Visits</span>
             </div>
             <div className="flex items-center">
-              <div className="w-3 h-3 bg-purple-500 rounded-full mr-2"></div>
+              <div className="w-3 h-3 bg-accent rounded-full mr-2"></div>
               <span className="text-sm text-gray-600 dark:text-gray-400">Content Interactions</span>
             </div>
             <div className="flex items-center">
-              <div className="w-3 h-3 bg-green-500 rounded-full mr-2"></div>
+              <div className="w-3 h-3 bg-secondary rounded-full mr-2"></div>
               <span className="text-sm text-gray-600 dark:text-gray-400">Mood Tracking</span>
             </div>
           </div>
@@ -245,7 +237,6 @@ const AdminAnalytics = () => {
               </li>
             </ul>
           </div>
-          
           <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
             <h3 className="font-medium text-gray-900 dark:text-white mb-2">Device Usage</h3>
             <ul className="space-y-2">
@@ -263,7 +254,6 @@ const AdminAnalytics = () => {
               </li>
             </ul>
           </div>
-          
           <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
             <h3 className="font-medium text-gray-900 dark:text-white mb-2">Popular Categories</h3>
             <ul className="space-y-2">
