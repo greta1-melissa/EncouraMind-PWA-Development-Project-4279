@@ -115,7 +115,7 @@ const Stories = () => {
                 key={category}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                   index === 0
-                    ? 'bg-gradient-to-r from-primary to-accent text-white'
+                    ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white'
                     : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
                 }`}
               >
@@ -135,7 +135,7 @@ const Stories = () => {
               Featured Story
             </h2>
             <div className="relative rounded-xl overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-accent/90"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-600/90 to-purple-600/90"></div>
               <img
                 src={featuredStory.image}
                 alt={featuredStory.title}
@@ -256,7 +256,7 @@ const Stories = () => {
             </p>
             <Link
               to="/stories/submit"
-              className="inline-flex items-center bg-gradient-to-r from-primary to-accent text-white px-6 py-3 rounded-full font-medium hover:opacity-90 transition-opacity"
+              className="inline-flex items-center bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-full font-medium hover:opacity-90 transition-opacity"
             >
               <span>Submit Your Story</span>
               <SafeIcon icon={FiArrowRight} className="ml-2 w-5 h-5" />

@@ -110,7 +110,7 @@ const DailyDose = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="mt-8 bg-gradient-to-r from-primary to-accent rounded-xl shadow-lg p-8 text-white relative overflow-hidden"
+            className="mt-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl shadow-lg p-8 text-white relative overflow-hidden"
           >
             <div className="absolute inset-0 bg-pattern opacity-10"></div>
             <div className="relative">
@@ -211,7 +211,7 @@ const DailyDose = () => {
             </p>
             <Link
               to="/register"
-              className="inline-flex items-center bg-gradient-to-r from-primary to-accent text-white px-6 py-3 rounded-full font-medium hover:opacity-90 transition-opacity"
+              className="inline-flex items-center bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-full font-medium hover:opacity-90 transition-opacity"
             >
               <span>Get Started for Free</span>
               <SafeIcon icon={FiArrowRight} className="ml-2 w-5 h-5" />

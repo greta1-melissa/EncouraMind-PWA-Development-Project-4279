@@ -92,7 +92,6 @@ const Community = () => {
             transition={{ delay: 0.1 }}
             className="mb-12"
           >
-            {/* Update gradient overlay in Community hero */}
             <div className="relative rounded-2xl overflow-hidden">
               <div 
                 className="absolute inset-0 bg-cover bg-center"
@@ -100,7 +99,7 @@ const Community = () => {
                   backgroundImage: 'url(https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80)'
                 }}
               ></div>
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-accent/80"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-600/80 to-purple-600/80"></div>
               <div className="relative py-16 px-8 sm:px-12 text-white">
                 <div className="max-w-xl">
                   <h2 className="text-3xl font-bold mb-4">
@@ -189,7 +188,7 @@ const Community = () => {
                   transition={{ delay: 0.4 + index * 0.1 }}
                   className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden"
                 >
-                  <div className="h-3 bg-gradient-to-r from-primary to-accent"></div>
+                  <div className="h-3 bg-gradient-to-r from-blue-600 to-purple-600"></div>
                   <div className="p-6">
                     <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
                       {group.name}
@@ -271,7 +270,7 @@ const Community = () => {
                   </div>
                   <Link
                     to={`/community/events/${event.id}`}
-                    className="w-full inline-flex items-center justify-center bg-gradient-to-r from-primary to-accent text-white py-2 rounded-lg font-medium hover:opacity-90 transition-opacity"
+                    className="w-full inline-flex items-center justify-center bg-gradient-to-r from-blue-600 to-purple-600 text-white py-2 rounded-lg font-medium hover:opacity-90 transition-opacity"
                   >
                     <span>RSVP</span>
                   </Link>
@@ -287,7 +286,7 @@ const Community = () => {
             transition={{ delay: 0.9 }}
             className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 text-center mb-12"
           >
-            <div className="w-16 h-16 bg-gradient-to-r from-primary to-accent rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
               <SafeIcon icon={FiSearch} className="w-8 h-8 text-white" />
             </div>
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 font-heading">
@@ -315,7 +314,7 @@ const Community = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.0 }}
-            className="bg-gradient-to-r from-primary to-accent rounded-xl p-8 text-white text-center relative overflow-hidden"
+            className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl p-8 text-white text-center relative overflow-hidden"
           >
             <div className="relative">
               <h2 className="text-2xl font-bold mb-4 font-heading">
