@@ -148,7 +148,7 @@ const MoodToolkit = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
-            className="mt-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl p-8 text-white text-center relative overflow-hidden"
+            className="mt-12 bg-gradient-to-r from-primary to-accent rounded-xl p-8 text-white text-center relative overflow-hidden"
           >
             <div
               className="absolute inset-0 opacity-20"
@@ -165,7 +165,7 @@ const MoodToolkit = () => {
               <p className="text-lg mb-6 max-w-2xl mx-auto">
                 Discover more tools and personalized recommendations by creating an account.
               </p>
-              <button className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
+              <button className="bg-white text-accent px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors">
                 Create Free Account
               </button>
             </div>
