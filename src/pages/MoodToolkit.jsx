@@ -14,9 +14,10 @@ const MoodToolkit = () => {
       icon: FiHeart,
       iconColor: "text-accent",
       bgColor: "bg-accent-50",
+      image: "https://images.unsplash.com/photo-1512438248247-f0f2a5a8b7f0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       items: [
         "Take 3 deep breaths",
-        "Stretch for 1 minute",
+        "Stretch for 1 minute", 
         "Drink a glass of water",
         "Step outside briefly",
         "Listen to a favorite song"
@@ -28,10 +29,11 @@ const MoodToolkit = () => {
       icon: FiWind,
       iconColor: "text-primary",
       bgColor: "bg-primary-50",
+      image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       items: [
         "5-minute breathing exercise",
         "Body scan meditation",
-        "Loving-kindness practice",
+        "Loving-kindness practice", 
         "Mindful walking guide",
         "Stress release visualization"
       ]
@@ -42,6 +44,7 @@ const MoodToolkit = () => {
       icon: FiSun,
       iconColor: "text-secondary",
       bgColor: "bg-secondary-50",
+      image: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       items: [
         "I am worthy of love and respect",
         "I choose peace over worry",
@@ -56,6 +59,7 @@ const MoodToolkit = () => {
       icon: FiMusic,
       iconColor: "text-accent",
       bgColor: "bg-accent-50",
+      image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       items: [
         "Calming Classical",
         "Upbeat Energy",
@@ -72,7 +76,7 @@ const MoodToolkit = () => {
         <title>Mood Toolkit - EncouraMind</title>
         <meta name="description" content="Access tools and resources to improve your mood and mental wellbeing." />
       </Helmet>
-
+      
       <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
@@ -97,56 +101,74 @@ const MoodToolkit = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className={`${tool.bgColor} dark:bg-gray-800 rounded-2xl shadow-soft p-6`}
+                className="bg-white dark:bg-gray-800 rounded-2xl shadow-soft overflow-hidden"
               >
-                <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-white dark:bg-gray-700 rounded-lg flex items-center justify-center shadow-soft">
-                    <SafeIcon icon={tool.icon} className={`w-6 h-6 ${tool.iconColor}`} />
+                {/* Tool Image */}
+                <div
+                  className="h-48 bg-cover bg-center"
+                  style={{ backgroundImage: `url(${tool.image})` }}
+                ></div>
+                
+                <div className="p-6">
+                  <div className="flex items-center mb-4">
+                    <div className="w-12 h-12 bg-white dark:bg-gray-700 rounded-lg flex items-center justify-center shadow-soft">
+                      <SafeIcon icon={tool.icon} className={`w-6 h-6 ${tool.iconColor}`} />
+                    </div>
+                    <div className="ml-4">
+                      <h2 className="text-xl font-semibold text-gray-900 dark:text-white font-heading">
+                        {tool.title}
+                      </h2>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">
+                        {tool.description}
+                      </p>
+                    </div>
                   </div>
-                  <div className="ml-4">
-                    <h2 className="text-xl font-semibold text-gray-900 dark:text-white font-heading">
-                      {tool.title}
-                    </h2>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">
-                      {tool.description}
-                    </p>
-                  </div>
-                </div>
 
-                <ul className="space-y-3 mt-6">
-                  {tool.items.map((item, itemIndex) => (
-                    <motion.li
-                      key={itemIndex}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.1 + itemIndex * 0.1 }}
-                      className="flex items-center space-x-3 p-3 bg-white dark:bg-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors cursor-pointer shadow-soft"
-                    >
-                      <div className={`w-2 h-2 ${tool.iconColor} rounded-full`}></div>
-                      <span className="text-gray-700 dark:text-gray-300">{item}</span>
-                    </motion.li>
-                  ))}
-                </ul>
+                  <ul className="space-y-3 mt-6">
+                    {tool.items.map((item, itemIndex) => (
+                      <motion.li
+                        key={itemIndex}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: index * 0.1 + itemIndex * 0.1 }}
+                        className="flex items-center space-x-3 p-3 bg-gray-50 dark:bg-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors cursor-pointer shadow-soft"
+                      >
+                        <div className={`w-2 h-2 ${tool.iconColor} rounded-full`}></div>
+                        <span className="text-gray-700 dark:text-gray-300">{item}</span>
+                      </motion.li>
+                    ))}
+                  </ul>
+                </div>
               </motion.div>
             ))}
           </div>
-          
-          {/* Call to Action */}
+
+          {/* Featured Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 }}
-            className="mt-12 text-center"
+            transition={{ delay: 0.5 }}
+            className="mt-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl p-8 text-white text-center relative overflow-hidden"
           >
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 font-heading">
-              Need More Personalized Support?
-            </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-400 mb-6 max-w-2xl mx-auto">
-              Discover more tools and personalized recommendations by creating an account.
-            </p>
-            <button className="btn btn-accent">
-              Create Free Account
-            </button>
+            <div
+              className="absolute inset-0 opacity-20"
+              style={{
+                backgroundImage: 'url(https://images.unsplash.com/photo-1439066615861-d1af74d74000?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80)',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
+              }}
+            ></div>
+            <div className="relative">
+              <h2 className="text-2xl font-bold text-white mb-4 font-heading">
+                Need More Personalized Support?
+              </h2>
+              <p className="text-lg mb-6 max-w-2xl mx-auto">
+                Discover more tools and personalized recommendations by creating an account.
+              </p>
+              <button className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
+                Create Free Account
+              </button>
+            </div>
           </motion.div>
         </div>
       </div>
