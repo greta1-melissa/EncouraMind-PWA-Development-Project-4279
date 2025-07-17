@@ -21,8 +21,7 @@ const Footer = () => {
               <span className="text-xl font-bold font-heading">EncouraMind</span>
             </div>
             <p className="text-gray-600 dark:text-gray-400 mb-4 max-w-md">
-              Encouraging Minds, Enriching Lives. Your private space for daily encouragement,
-              mental wellness support, and personal growth.
+              Encouraging Minds, Enriching Lives. Your private space for daily encouragement, mental wellness support, and personal growth.
             </p>
             <div className="flex items-center space-x-2 text-accent dark:text-accent-400">
               <SafeIcon icon={FiHeart} className="w-4 h-4" />

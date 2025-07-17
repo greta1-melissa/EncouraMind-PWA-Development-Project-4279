@@ -63,16 +63,3 @@ h1, h2, h3, h4, h5, h6 {
 .section {
   @apply py-16 px-4 sm:px-6 lg:px-8;
 }
-
-/* Debug styles */
-.debug-info {
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  background: rgba(0, 0, 0, 0.8);
-  color: white;
-  padding: 10px;
-  border-radius: 5px;
-  font-size: 12px;
-  z-index: 1000;
-}

@@ -40,12 +40,12 @@ function App() {
   const { isDarkMode } = useThemeStore();
   const { checkSession } = useAuthStore();
   const location = useLocation();
-  
+
   // Check authentication session on mount
   useEffect(() => {
     checkSession();
   }, [checkSession]);
-  
+
   // Apply dark mode class to html element
   useEffect(() => {
     if (isDarkMode) {
@@ -54,7 +54,7 @@ function App() {
       document.documentElement.classList.remove('dark');
     }
   }, [isDarkMode]);
-  
+
   // Scroll to top on route change
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -77,32 +77,24 @@ function App() {
           <Route path="quizzes" element={<Quizzes />} />
           <Route path="articles" element={<Articles />} />
           <Route path="community" element={<Community />} />
-          
+
           {/* Protected Routes */}
-          <Route path="profile" element={
-            <ProtectedRoute>
-              <Profile />
-            </ProtectedRoute>
-          } />
+          <Route path="profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
         </Route>
-        
+
         {/* Auth Routes */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        
+
         {/* Admin Routes */}
-        <Route path="/admin" element={
-          <ProtectedRoute adminOnly={true}>
-            <AdminLayout />
-          </ProtectedRoute>
-        }>
+        <Route path="/admin" element={<ProtectedRoute adminOnly={true}><AdminLayout /></ProtectedRoute>}>
           <Route index element={<Dashboard />} />
           <Route path="users" element={<Users />} />
           <Route path="content" element={<Content />} />
           <Route path="analytics" element={<Analytics />} />
           <Route path="settings" element={<Settings />} />
         </Route>
-        
+
         {/* 404 Route */}
         <Route path="*" element={<NotFound />} />
       </Routes>

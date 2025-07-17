@@ -12,9 +12,7 @@ const useThemeStore = create(
         return { isDarkMode: !state.isDarkMode };
       }),
     }),
-    {
-      name: 'theme-storage',
-    }
+    { name: 'theme-storage', }
   )
 );
 

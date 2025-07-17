@@ -56,7 +56,7 @@ export default {
         'heading': ['Nunito Sans', 'ui-sans-serif', 'system-ui'],
       },
       backgroundImage: {
-        'gradient-primary': 'linear-gradient(135deg, #88dce5 0%, #fe7247 100%)',
+        'gradient-primary': 'linear-gradient(135deg, #88dce5 0%, #88dce5 70%, #fe7247 100%)',
         'gradient-accent': 'linear-gradient(135deg, #fe7247 0%, #f9cc56 100%)',
         'gradient-secondary': 'linear-gradient(135deg, #f9cc56 0%, #88dce5 100%)',
       },
