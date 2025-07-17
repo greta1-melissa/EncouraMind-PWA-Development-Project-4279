@@ -1,9 +1,4 @@
-import React from 'react';
-import { Outlet } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
-import Header from './Header';
-import Footer from './Footer';
-
+// Update all instances of from-blue-600 to-purple-600 to from-primary to-accent
 const Layout = () => {
   return (
     <>

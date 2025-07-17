@@ -1,11 +1,11 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
-import {motion} from 'framer-motion';
-import {Helmet} from 'react-helmet-async';
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../components/common/SafeIcon';
 
-const {FiHeart, FiUsers, FiBookOpen, FiStar, FiArrowRight, FiPlay, FiCheck} = FiIcons;
+const { FiHeart, FiUsers, FiBookOpen, FiStar, FiArrowRight, FiPlay, FiCheck } = FiIcons;
 
 const Home = () => {
   const features = [
@@ -54,14 +54,13 @@ const Home = () => {
       <div className="bg-white dark:bg-gray-900 transition-colors duration-300">
         {/* Hero Section */}
         <section className="relative overflow-hidden">
-          <div 
+          <div
             className="absolute inset-0 bg-cover bg-center opacity-20"
             style={{
               backgroundImage: 'url(https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80)'
             }}
           ></div>
           <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-accent/80 to-primary/90"></div>
-          
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
             <div className="text-center">
               <motion.h1
@@ -69,11 +68,9 @@ const Home = () => {
                 animate={{ opacity: 1, y: 0 }}
                 className="text-4xl md:text-6xl font-bold text-white mb-6 font-heading"
               >
-                Encouraging Minds,
-                <br />
+                Encouraging Minds,<br />
                 <span className="text-yellow-300">Enriching Lives</span>
               </motion.h1>
-              
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -82,7 +79,6 @@ const Home = () => {
               >
                 Your private sanctuary for daily encouragement, mental wellness support, and personal growth. Join a community that believes in your potential.
               </motion.p>
-              
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -156,14 +152,13 @@ const Home = () => {
               animate={{ opacity: 1, y: 0 }}
               className="relative overflow-hidden rounded-2xl"
             >
-              <div 
+              <div
                 className="absolute inset-0 bg-cover bg-center opacity-10"
                 style={{
                   backgroundImage: 'url(https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80)'
                 }}
               ></div>
               <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-accent/90"></div>
-              
               <div className="relative p-8 md:p-12 text-center text-white">
                 <h2 className="text-2xl md:text-3xl font-bold mb-6 font-heading">
                   Daily Dose of Encouragement
@@ -228,14 +223,13 @@ const Home = () => {
 
         {/* CTA Section */}
         <section className="relative overflow-hidden">
-          <div 
+          <div
             className="absolute inset-0 bg-cover bg-center opacity-20"
             style={{
               backgroundImage: 'url(https://images.unsplash.com/photo-1439066615861-d1af74d74000?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80)'
             }}
           ></div>
           <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-accent/90"></div>
-          
           <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -247,7 +241,6 @@ const Home = () => {
               <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
                 Join thousands of others who've discovered the power of daily encouragement and community support.
               </p>
-              
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   to="/register"
