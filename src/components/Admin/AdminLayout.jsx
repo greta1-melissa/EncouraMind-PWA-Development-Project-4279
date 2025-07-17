@@ -54,7 +54,7 @@ const AdminLayout = () => {
             {/* Sidebar header */}
             <div className="flex items-center justify-between px-4 py-5 border-b border-gray-200 dark:border-gray-700">
               <div className={`flex items-center ${!isSidebarOpen && 'lg:justify-center'}`}>
-                <div className="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center">
+                <div className="w-10 h-10 bg-gradient-to-br from-primary to-primary/70 rounded-lg flex items-center justify-center">
                   <span className="text-white font-bold text-sm">E</span>
                 </div>
                 {isSidebarOpen && (
@@ -80,7 +80,7 @@ const AdminLayout = () => {
                     to={item.href}
                     className={`flex items-center px-4 py-3 rounded-lg transition-colors ${
                       location.pathname === item.href
-                        ? 'bg-gradient-to-r from-primary/10 to-accent/10 text-primary dark:text-primary'
+                        ? 'bg-gradient-to-r from-primary/20 to-primary/10 text-primary dark:text-primary'
                         : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
                     } ${!isSidebarOpen && 'lg:justify-center'}`}
                   >
@@ -99,7 +99,7 @@ const AdminLayout = () => {
             {/* Sidebar footer */}
             <div className="p-4 border-t border-gray-200 dark:border-gray-700">
               <div className="flex items-center">
-                <div className="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center">
+                <div className="w-10 h-10 bg-gradient-to-br from-primary to-primary/70 rounded-full flex items-center justify-center">
                   <span className="text-white text-sm font-medium">
                     {user?.name?.charAt(0) || 'A'}
                   </span>

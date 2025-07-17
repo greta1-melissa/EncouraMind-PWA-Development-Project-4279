@@ -18,17 +18,33 @@ const DailyDose = () => {
   const dailyQuote = {
     text: "Every day may not be good, but there's something good in every day.",
     author: "Alice Morse Earle",
-    category: "Perspective"
+    category: "Perspective",
+    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
   };
 
   const dailyAffirmation = "I am resilient, capable, and worthy of all good things.";
 
   const journalPrompts = [
-    "What made you smile today?",
-    "What's one small thing you're grateful for right now?",
-    "What's a challenge you overcame recently?",
-    "What's something kind you can do for yourself today?",
-    "What's a positive change you've noticed in yourself lately?"
+    {
+      text: "What made you smile today?",
+      image: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+    },
+    {
+      text: "What's one small thing you're grateful for right now?",
+      image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+    },
+    {
+      text: "What's a challenge you overcame recently?",
+      image: "https://images.unsplash.com/photo-1533294455009-a77b7557d979?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+    },
+    {
+      text: "What's something kind you can do for yourself today?",
+      image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+    },
+    {
+      text: "What's a positive change you've noticed in yourself lately?",
+      image: "https://images.unsplash.com/photo-1490730141103-6cac27aaab94?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+    }
   ];
 
   return (
@@ -43,7 +59,7 @@ const DailyDose = () => {
           <div className="relative overflow-hidden">
             <div className="absolute inset-0 bg-cover bg-center" 
                  style={{backgroundImage: 'url(https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80)'}}></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-accent/90"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/80"></div>
             <div className="relative pt-16 pb-20 px-6 sm:px-12 rounded-2xl">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -70,30 +86,33 @@ const DailyDose = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="mt-12 bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8"
+            className="mt-12 bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden"
           >
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white font-heading">
-                Quote of the Day
-              </h2>
-              <span className="px-3 py-1 bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary rounded-full text-sm font-medium">
-                {dailyQuote.category}
-              </span>
-            </div>
-            <blockquote className="text-xl text-gray-700 dark:text-gray-300 italic mb-4">
-              "{dailyQuote.text}"
-            </blockquote>
-            <p className="text-right text-gray-600 dark:text-gray-400">— {dailyQuote.author}</p>
-            <div className="flex justify-end mt-4 space-x-2">
-              <button className="p-2 text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary rounded-full transition-colors">
-                <SafeIcon icon={FiBookmark} className="w-5 h-5" />
-              </button>
-              <button className="p-2 text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary rounded-full transition-colors">
-                <SafeIcon icon={FiShare2} className="w-5 h-5" />
-              </button>
-              <button className="p-2 text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary rounded-full transition-colors">
-                <SafeIcon icon={FiThumbsUp} className="w-5 h-5" />
-              </button>
+            <div className="h-48 bg-cover bg-center" style={{backgroundImage: `url(${dailyQuote.image})`}}></div>
+            <div className="p-8">
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white font-heading">
+                  Quote of the Day
+                </h2>
+                <span className="px-3 py-1 bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary rounded-full text-sm font-medium">
+                  {dailyQuote.category}
+                </span>
+              </div>
+              <blockquote className="text-xl text-gray-700 dark:text-gray-300 italic mb-4">
+                "{dailyQuote.text}"
+              </blockquote>
+              <p className="text-right text-gray-600 dark:text-gray-400">— {dailyQuote.author}</p>
+              <div className="flex justify-end mt-4 space-x-2">
+                <button className="p-2 text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary rounded-full transition-colors">
+                  <SafeIcon icon={FiBookmark} className="w-5 h-5" />
+                </button>
+                <button className="p-2 text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary rounded-full transition-colors">
+                  <SafeIcon icon={FiShare2} className="w-5 h-5" />
+                </button>
+                <button className="p-2 text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary rounded-full transition-colors">
+                  <SafeIcon icon={FiThumbsUp} className="w-5 h-5" />
+                </button>
+              </div>
             </div>
           </motion.div>
 
@@ -102,9 +121,10 @@ const DailyDose = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="mt-8 bg-gradient-to-r from-primary to-accent rounded-xl shadow-lg p-8 text-white relative overflow-hidden"
+            className="mt-8 bg-gradient-to-r from-primary to-primary/80 rounded-xl shadow-lg p-8 text-white relative overflow-hidden"
           >
-            <div className="absolute inset-0 bg-pattern opacity-10"></div>
+            <div className="absolute inset-0 bg-cover bg-center opacity-10" 
+                 style={{backgroundImage: 'url(https://images.unsplash.com/photo-1508615070457-7baeba4003ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80)'}}></div>
             <div className="relative">
               <h2 className="text-2xl font-bold mb-4 font-heading">
                 Today's Affirmation
@@ -132,19 +152,22 @@ const DailyDose = () => {
             <p className="text-gray-600 dark:text-gray-400 mb-6">
               Take a moment to reflect on one of these prompts today:
             </p>
-            <div className="space-y-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {journalPrompts.map((prompt, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4 + index * 0.1 }}
-                  className="flex items-center p-4 bg-gray-50 dark:bg-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors cursor-pointer"
+                  className="bg-gray-50 dark:bg-gray-700 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all cursor-pointer"
                 >
-                  <div className="w-8 h-8 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                    <span className="text-white font-medium">{index + 1}</span>
+                  <div className="h-32 bg-cover bg-center" style={{backgroundImage: `url(${prompt.image})`}}></div>
+                  <div className="p-4 flex items-center">
+                    <div className="w-8 h-8 bg-gradient-to-br from-primary to-primary/70 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+                      <span className="text-white font-medium">{index + 1}</span>
+                    </div>
+                    <p className="text-gray-800 dark:text-gray-200">{prompt.text}</p>
                   </div>
-                  <p className="text-gray-800 dark:text-gray-200">{prompt}</p>
                 </motion.div>
               ))}
             </div>
@@ -172,7 +195,7 @@ const DailyDose = () => {
                   key={index}
                   className={`w-10 h-10 rounded-full flex items-center justify-center ${
                     index < 5
-                      ? 'bg-gradient-to-br from-primary to-accent text-white'
+                      ? 'bg-gradient-to-br from-primary to-primary/70 text-white'
                       : 'bg-gray-100 dark:bg-gray-700 text-gray-400 dark:text-gray-500'
                   }`}
                 >
@@ -198,7 +221,7 @@ const DailyDose = () => {
             <p className="text-xl text-gray-700 dark:text-gray-300 mb-6 max-w-2xl mx-auto">
               Want a personalized daily dose of encouragement delivered to your inbox?
             </p>
-            <Link to="/register" className="inline-flex items-center bg-gradient-to-r from-primary to-accent text-white px-6 py-3 rounded-full font-medium hover:opacity-90 transition-opacity">
+            <Link to="/register" className="inline-flex items-center bg-gradient-to-r from-primary to-primary/80 text-white px-6 py-3 rounded-full font-medium hover:opacity-90 transition-opacity">
               <span>Get Started for Free</span>
               <SafeIcon icon={FiArrowRight} className="ml-2 w-5 h-5" />
             </Link>

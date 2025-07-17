@@ -21,7 +21,7 @@ const AdminAnalytics = () => {
       change: '+18%',
       trend: 'up',
       icon: FiActivity,
-      color: 'bg-accent'
+      color: 'bg-primary'
     },
     {
       name: 'Engagement Rate',
@@ -29,7 +29,7 @@ const AdminAnalytics = () => {
       change: '+5%',
       trend: 'up',
       icon: FiBarChart2,
-      color: 'bg-secondary'
+      color: 'bg-accent'
     },
     {
       name: 'Avg. Session Time',
@@ -37,7 +37,7 @@ const AdminAnalytics = () => {
       change: '+2%',
       trend: 'up',
       icon: FiCalendar,
-      color: 'bg-primary'
+      color: 'bg-secondary'
     },
   ];
 
@@ -122,12 +122,19 @@ const AdminAnalytics = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
-          className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6"
+          className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 overflow-hidden"
         >
           <h2 className="text-lg font-medium text-gray-900 dark:text-white mb-4">User Growth</h2>
-          {/* Placeholder for chart */}
-          <div className="h-64 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center">
-            <p className="text-gray-500 dark:text-gray-400">User Growth Chart</p>
+          {/* Chart with image */}
+          <div className="h-64 bg-gray-100 dark:bg-gray-700 rounded-lg overflow-hidden relative">
+            <img 
+              src="https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+              alt="User growth chart"
+              className="w-full h-full object-cover opacity-30"
+            />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <p className="text-gray-800 dark:text-gray-200 font-medium text-lg">User Growth Chart</p>
+            </div>
           </div>
           <div className="mt-4 grid grid-cols-3 gap-4">
             <div className="text-center">
@@ -149,12 +156,19 @@ const AdminAnalytics = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7 }}
-          className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6"
+          className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 overflow-hidden"
         >
           <h2 className="text-lg font-medium text-gray-900 dark:text-white mb-4">Engagement by Content</h2>
-          {/* Placeholder for chart */}
-          <div className="h-64 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center">
-            <p className="text-gray-500 dark:text-gray-400">Engagement Chart</p>
+          {/* Chart with image */}
+          <div className="h-64 bg-gray-100 dark:bg-gray-700 rounded-lg overflow-hidden relative">
+            <img 
+              src="https://images.unsplash.com/photo-1543286386-713bdd548da4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+              alt="Engagement chart"
+              className="w-full h-full object-cover opacity-30"
+            />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <p className="text-gray-800 dark:text-gray-200 font-medium text-lg">Content Engagement Chart</p>
+            </div>
           </div>
           <div className="mt-4 grid grid-cols-3 gap-4">
             <div className="text-center">
@@ -179,12 +193,19 @@ const AdminAnalytics = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8 }}
-          className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6"
+          className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 overflow-hidden"
         >
           <h2 className="text-lg font-medium text-gray-900 dark:text-white mb-4">User Activity Over Time</h2>
-          {/* Placeholder for chart */}
-          <div className="h-80 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center">
-            <p className="text-gray-500 dark:text-gray-400">User Activity Timeline Chart</p>
+          {/* Chart with image */}
+          <div className="h-80 bg-gray-100 dark:bg-gray-700 rounded-lg overflow-hidden relative">
+            <img 
+              src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80"
+              alt="Activity timeline"
+              className="w-full h-full object-cover opacity-30"
+            />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <p className="text-gray-800 dark:text-gray-200 font-medium text-lg">User Activity Timeline</p>
+            </div>
           </div>
           <div className="mt-4 flex justify-center space-x-6">
             <div className="flex items-center">
@@ -202,85 +223,6 @@ const AdminAnalytics = () => {
           </div>
         </motion.div>
       </div>
-
-      {/* User Insights */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.9 }}
-        className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6"
-      >
-        <h2 className="text-lg font-medium text-gray-900 dark:text-white mb-4">User Insights</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
-            <h3 className="font-medium text-gray-900 dark:text-white mb-2">Top User Locations</h3>
-            <ul className="space-y-2">
-              <li className="flex justify-between">
-                <span className="text-gray-600 dark:text-gray-300">United States</span>
-                <span className="font-medium text-gray-900 dark:text-white">45%</span>
-              </li>
-              <li className="flex justify-between">
-                <span className="text-gray-600 dark:text-gray-300">United Kingdom</span>
-                <span className="font-medium text-gray-900 dark:text-white">18%</span>
-              </li>
-              <li className="flex justify-between">
-                <span className="text-gray-600 dark:text-gray-300">Canada</span>
-                <span className="font-medium text-gray-900 dark:text-white">12%</span>
-              </li>
-              <li className="flex justify-between">
-                <span className="text-gray-600 dark:text-gray-300">Australia</span>
-                <span className="font-medium text-gray-900 dark:text-white">8%</span>
-              </li>
-              <li className="flex justify-between">
-                <span className="text-gray-600 dark:text-gray-300">Other</span>
-                <span className="font-medium text-gray-900 dark:text-white">17%</span>
-              </li>
-            </ul>
-          </div>
-          <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
-            <h3 className="font-medium text-gray-900 dark:text-white mb-2">Device Usage</h3>
-            <ul className="space-y-2">
-              <li className="flex justify-between">
-                <span className="text-gray-600 dark:text-gray-300">Mobile</span>
-                <span className="font-medium text-gray-900 dark:text-white">68%</span>
-              </li>
-              <li className="flex justify-between">
-                <span className="text-gray-600 dark:text-gray-300">Desktop</span>
-                <span className="font-medium text-gray-900 dark:text-white">24%</span>
-              </li>
-              <li className="flex justify-between">
-                <span className="text-gray-600 dark:text-gray-300">Tablet</span>
-                <span className="font-medium text-gray-900 dark:text-white">8%</span>
-              </li>
-            </ul>
-          </div>
-          <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
-            <h3 className="font-medium text-gray-900 dark:text-white mb-2">Popular Categories</h3>
-            <ul className="space-y-2">
-              <li className="flex justify-between">
-                <span className="text-gray-600 dark:text-gray-300">Anxiety</span>
-                <span className="font-medium text-gray-900 dark:text-white">32%</span>
-              </li>
-              <li className="flex justify-between">
-                <span className="text-gray-600 dark:text-gray-300">Mindfulness</span>
-                <span className="font-medium text-gray-900 dark:text-white">28%</span>
-              </li>
-              <li className="flex justify-between">
-                <span className="text-gray-600 dark:text-gray-300">Self-Esteem</span>
-                <span className="font-medium text-gray-900 dark:text-white">18%</span>
-              </li>
-              <li className="flex justify-between">
-                <span className="text-gray-600 dark:text-gray-300">Stress</span>
-                <span className="font-medium text-gray-900 dark:text-white">14%</span>
-              </li>
-              <li className="flex justify-between">
-                <span className="text-gray-600 dark:text-gray-300">Other</span>
-                <span className="font-medium text-gray-900 dark:text-white">8%</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </motion.div>
     </div>
   );
 };

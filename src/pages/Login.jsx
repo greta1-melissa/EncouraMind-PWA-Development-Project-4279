@@ -9,10 +9,7 @@ import { useAuthStore } from '../store/authStore';
 const { FiMail, FiLock, FiEye, FiEyeOff } = FiIcons;
 
 const Login = () => {
-  const [formData, setFormData] = useState({
-    email: '',
-    password: ''
-  });
+  const [formData, setFormData] = useState({ email: '', password: '' });
   const [showPassword, setShowPassword] = useState(false);
   const [errors, setErrors] = useState({});
   const { login, isLoading } = useAuthStore();
@@ -24,16 +21,11 @@ const Login = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
+    setFormData(prev => ({ ...prev, [name]: value }));
+
     // Clear error when user types
     if (errors[name]) {
-      setErrors(prev => ({
-        ...prev,
-        [name]: ''
-      }));
+      setErrors(prev => ({ ...prev, [name]: '' }));
     }
   };
 
@@ -43,6 +35,7 @@ const Login = () => {
 
     // Demo login with admin@example.com / admin or user@example.com / password
     const result = await login(formData);
+
     if (result.success) {
       navigate(from, { replace: true });
     } else {
@@ -53,15 +46,9 @@ const Login = () => {
   // Auto-fill demo credentials
   const fillDemoCredentials = (type) => {
     if (type === 'admin') {
-      setFormData({
-        email: 'admin@example.com',
-        password: 'admin'
-      });
+      setFormData({ email: 'admin@example.com', password: 'admin' });
     } else {
-      setFormData({
-        email: 'user@example.com',
-        password: 'password'
-      });
+      setFormData({ email: 'user@example.com', password: 'password' });
     }
   };
 
@@ -71,8 +58,7 @@ const Login = () => {
         <title>Sign In - EncouraMind</title>
         <meta name="description" content="Sign in to your EncouraMind account to access your personal wellness journey." />
       </Helmet>
-
-      <div className="min-h-screen bg-gradient-to-br from-primary to-accent flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+      <div className="min-h-screen bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -80,7 +66,7 @@ const Login = () => {
         >
           <div className="text-center">
             <div className="flex justify-center mb-4">
-              <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center">
+              <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary/70 rounded-2xl flex items-center justify-center">
                 <span className="text-white font-bold text-2xl">E</span>
               </div>
             </div>
@@ -157,7 +143,7 @@ const Login = () => {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-gradient-to-r from-primary to-accent hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary disabled:opacity-70 disabled:cursor-not-allowed transition-colors"
+                className="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-gradient-to-r from-primary to-primary/80 hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary disabled:opacity-70 disabled:cursor-not-allowed transition-colors"
               >
                 {isLoading ? (
                   <div className="flex items-center">
@@ -172,10 +158,7 @@ const Login = () => {
               <div className="text-center">
                 <p className="text-sm text-gray-600 dark:text-gray-400">
                   Don't have an account?{' '}
-                  <Link
-                    to="/register"
-                    className="font-medium text-primary hover:text-accent"
-                  >
+                  <Link to="/register" className="font-medium text-primary hover:text-accent">
                     Sign up
                   </Link>
                 </p>

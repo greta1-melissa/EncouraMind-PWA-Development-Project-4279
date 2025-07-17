@@ -19,45 +19,49 @@ const AdminDashboard = () => {
       value: '586',
       icon: FiActivity,
       change: '+18%',
-      color: 'bg-accent'
+      color: 'bg-primary'
     },
     {
       name: 'Content Items',
       value: '142',
       icon: FiFileText,
       change: '+5%',
-      color: 'bg-secondary'
+      color: 'bg-accent'
     },
     {
       name: 'Active Sessions',
       value: '24',
       icon: FiBarChart2,
       change: '-2%',
-      color: 'bg-primary'
+      color: 'bg-secondary'
     }
   ];
 
   const recentActivity = [
     {
       user: 'Sarah Miller',
+      avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80',
       action: 'Created a new account',
       time: '12 minutes ago',
       status: 'success'
     },
     {
       user: 'Mark Johnson',
+      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80',
       action: 'Submitted a new story',
       time: '45 minutes ago',
       status: 'success'
     },
     {
       user: 'Lisa Williams',
+      avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80',
       action: 'Reported a content issue',
       time: '2 hours ago',
       status: 'warning'
     },
     {
       user: 'James Brown',
+      avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80',
       action: 'Updated profile information',
       time: '3 hours ago',
       status: 'success'
@@ -128,9 +132,11 @@ const AdminDashboard = () => {
           <div className="space-y-4">
             {recentActivity.map((activity, index) => (
               <div key={index} className="flex items-center">
-                <div className="w-10 h-10 bg-gradient-to-r from-primary to-accent rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-white font-medium text-sm">{activity.user.charAt(0)}</span>
-                </div>
+                <img 
+                  src={activity.avatar}
+                  alt={activity.user}
+                  className="w-10 h-10 rounded-full object-cover flex-shrink-0"
+                />
                 <div className="ml-3 flex-1">
                   <div className="flex items-center justify-between">
                     <p className="text-sm font-medium text-gray-900 dark:text-white">{activity.user}</p>
@@ -157,9 +163,16 @@ const AdminDashboard = () => {
           className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6"
         >
           <h2 className="text-lg font-medium text-gray-900 dark:text-white mb-4">Usage Analytics</h2>
-          {/* Placeholder for chart */}
-          <div className="h-64 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center">
-            <p className="text-gray-500 dark:text-gray-400">Analytics chart would appear here</p>
+          {/* Chart with image */}
+          <div className="h-64 bg-gray-100 dark:bg-gray-700 rounded-lg overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+              alt="Analytics chart"
+              className="w-full h-full object-cover opacity-40"
+            />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <p className="text-gray-500 dark:text-gray-400 font-medium text-lg">Analytics visualization</p>
+            </div>
           </div>
           <div className="mt-4 grid grid-cols-3 gap-4">
             <div className="text-center">
@@ -190,10 +203,10 @@ const AdminDashboard = () => {
           <button className="bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary p-4 rounded-lg hover:bg-primary/20 dark:hover:bg-primary/30 transition-colors">
             Add New User
           </button>
-          <button className="bg-accent/10 dark:bg-accent/20 text-accent dark:text-accent p-4 rounded-lg hover:bg-accent/20 dark:hover:bg-accent/30 transition-colors">
+          <button className="bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary p-4 rounded-lg hover:bg-primary/20 dark:hover:bg-primary/30 transition-colors">
             Create Content
           </button>
-          <button className="bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400 p-4 rounded-lg hover:bg-green-100 dark:hover:bg-green-900/40 transition-colors">
+          <button className="bg-accent/10 dark:bg-accent/20 text-accent dark:text-accent p-4 rounded-lg hover:bg-accent/20 dark:hover:bg-accent/30 transition-colors">
             View Reports
           </button>
           <button className="bg-secondary/10 dark:bg-secondary/20 text-secondary dark:text-secondary p-4 rounded-lg hover:bg-secondary/20 dark:hover:bg-secondary/30 transition-colors">
