@@ -55,7 +55,7 @@ const AdminLayout = () => {
             {/* Sidebar header */}
             <div className="flex items-center justify-between px-4 py-5 border-b border-gray-200 dark:border-gray-700">
               <div className={`flex items-center ${!isSidebarOpen && 'lg:justify-center'}`}>
-                <div className="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center">
+                <div className="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center">
                   <span className="text-white font-bold text-sm">E</span>
                 </div>
                 {isSidebarOpen && (
@@ -81,14 +81,11 @@ const AdminLayout = () => {
                     to={item.href}
                     className={`flex items-center px-4 py-3 rounded-lg transition-colors ${
                       location.pathname === item.href
-                        ? 'bg-primary-50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400'
+                        ? 'bg-gradient-to-r from-primary/10 to-accent/10 text-primary dark:text-primary'
                         : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
                     } ${!isSidebarOpen && 'lg:justify-center'}`}
                   >
-                    <SafeIcon
-                      icon={item.icon}
-                      className={`w-6 h-6 ${!isSidebarOpen && 'lg:mr-0'}`}
-                    />
+                    <SafeIcon icon={item.icon} className={`w-6 h-6 ${!isSidebarOpen && 'lg:mr-0'}`} />
                     {isSidebarOpen && (
                       <span className="ml-3 text-sm font-medium">{item.name}</span>
                     )}
@@ -100,7 +97,7 @@ const AdminLayout = () => {
             {/* Sidebar footer */}
             <div className="p-4 border-t border-gray-200 dark:border-gray-700">
               <div className="flex items-center">
-                <div className="w-10 h-10 bg-gradient-primary rounded-full flex items-center justify-center">
+                <div className="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center">
                   <span className="text-white text-sm font-medium">
                     {user?.name?.charAt(0) || 'A'}
                   </span>
@@ -118,7 +115,7 @@ const AdminLayout = () => {
               </div>
               <button
                 onClick={handleLogout}
-                className={`mt-4 flex items-center w-full px-4 py-2 text-sm text-accent-600 dark:text-accent-400 rounded-lg hover:bg-accent-50 dark:hover:bg-accent-900/20 ${
+                className={`mt-4 flex items-center w-full px-4 py-2 text-sm text-red-600 dark:text-red-400 rounded-lg hover:bg-red-50 dark:hover:bg-red-900/20 ${
                   !isSidebarOpen && 'lg:justify-center'
                 }`}
               >
@@ -157,11 +154,10 @@ const AdminLayout = () => {
                     <SafeIcon icon={FiMenu} className="w-6 h-6" />
                   </button>
                 </div>
-
                 <div className="flex items-center">
                   <Link
                     to="/"
-                    className="px-3 py-1 text-sm text-primary-600 dark:text-primary-400 hover:text-primary-800 dark:hover:text-primary-300"
+                    className="px-3 py-1 text-sm text-primary hover:text-accent transition-colors"
                   >
                     View Site
                   </Link>

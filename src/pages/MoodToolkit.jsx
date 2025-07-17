@@ -12,12 +12,12 @@ const MoodToolkit = () => {
       title: "Quick Mood Fixes",
       description: "Simple exercises to lift your mood instantly",
       icon: FiHeart,
-      iconColor: "text-accent",
-      bgColor: "bg-accent-50",
+      iconColor: "text-red-500",
+      bgColor: "bg-red-50",
       image: "https://images.unsplash.com/photo-1512438248247-f0f2a5a8b7f0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       items: [
         "Take 3 deep breaths",
-        "Stretch for 1 minute", 
+        "Stretch for 1 minute",
         "Drink a glass of water",
         "Step outside briefly",
         "Listen to a favorite song"
@@ -33,7 +33,7 @@ const MoodToolkit = () => {
       items: [
         "5-minute breathing exercise",
         "Body scan meditation",
-        "Loving-kindness practice", 
+        "Loving-kindness practice",
         "Mindful walking guide",
         "Stress release visualization"
       ]
@@ -42,8 +42,8 @@ const MoodToolkit = () => {
       title: "Daily Affirmations",
       description: "Positive statements to boost your mindset",
       icon: FiSun,
-      iconColor: "text-secondary",
-      bgColor: "bg-secondary-50",
+      iconColor: "text-yellow-500",
+      bgColor: "bg-yellow-50",
       image: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       items: [
         "I am worthy of love and respect",
@@ -57,8 +57,8 @@ const MoodToolkit = () => {
       title: "Mood Music",
       description: "Curated playlists for different moods",
       icon: FiMusic,
-      iconColor: "text-accent",
-      bgColor: "bg-accent-50",
+      iconColor: "text-purple-500",
+      bgColor: "bg-purple-50",
       image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       items: [
         "Calming Classical",
@@ -76,7 +76,7 @@ const MoodToolkit = () => {
         <title>Mood Toolkit - EncouraMind</title>
         <meta name="description" content="Access tools and resources to improve your mood and mental wellbeing." />
       </Helmet>
-      
+
       <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
@@ -108,7 +108,6 @@ const MoodToolkit = () => {
                   className="h-48 bg-cover bg-center"
                   style={{ backgroundImage: `url(${tool.image})` }}
                 ></div>
-                
                 <div className="p-6">
                   <div className="flex items-center mb-4">
                     <div className="w-12 h-12 bg-white dark:bg-gray-700 rounded-lg flex items-center justify-center shadow-soft">
@@ -123,7 +122,6 @@ const MoodToolkit = () => {
                       </p>
                     </div>
                   </div>
-
                   <ul className="space-y-3 mt-6">
                     {tool.items.map((item, itemIndex) => (
                       <motion.li
@@ -165,7 +163,7 @@ const MoodToolkit = () => {
               <p className="text-lg mb-6 max-w-2xl mx-auto">
                 Discover more tools and personalized recommendations by creating an account.
               </p>
-              <button className="bg-white text-accent px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors">
+              <button className="bg-white text-primary px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors">
                 Create Free Account
               </button>
             </div>

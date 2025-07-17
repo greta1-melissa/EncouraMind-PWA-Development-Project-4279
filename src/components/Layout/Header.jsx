@@ -32,8 +32,8 @@ const Header = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center">
-              <span className="text-gray-800 font-bold text-xl">E</span>
+            <div className="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center">
+              <span className="text-white font-bold text-xl">E</span>
             </div>
             <span className="text-xl font-bold text-gray-900 dark:text-white font-heading">
               EncouraMind
@@ -48,8 +48,8 @@ const Header = () => {
                 to={item.href}
                 className={`text-sm font-medium transition-colors duration-200 ${
                   location.pathname === item.href
-                    ? 'text-accent dark:text-accent-400'
-                    : 'text-gray-700 dark:text-gray-300 hover:text-accent dark:hover:text-accent-400'
+                    ? 'text-primary dark:text-primary'
+                    : 'text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary'
                 }`}
               >
                 {item.name}
@@ -74,8 +74,8 @@ const Header = () => {
                   onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
                   className="flex items-center space-x-2 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
                 >
-                  <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
-                    <span className="text-gray-800 text-sm font-medium">
+                  <div className="w-8 h-8 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center">
+                    <span className="text-white text-sm font-medium">
                       {user?.name?.charAt(0) || 'U'}
                     </span>
                   </div>
@@ -83,6 +83,7 @@ const Header = () => {
                     {user?.name}
                   </span>
                 </button>
+
                 {isUserMenuOpen && (
                   <motion.div
                     initial={{ opacity: 0, y: -10 }}
@@ -113,7 +114,7 @@ const Header = () => {
                         logout();
                         setIsUserMenuOpen(false);
                       }}
-                      className="flex items-center space-x-2 w-full px-4 py-2 text-sm text-accent dark:text-accent-400 hover:bg-gray-100 dark:hover:bg-gray-700"
+                      className="flex items-center space-x-2 w-full px-4 py-2 text-sm text-red-600 dark:text-red-400 hover:bg-gray-100 dark:hover:bg-gray-700"
                     >
                       <SafeIcon icon={FiLogOut} className="w-4 h-4" />
                       <span>Sign Out</span>
@@ -125,13 +126,13 @@ const Header = () => {
               <div className="flex items-center space-x-4">
                 <Link
                   to="/login"
-                  className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-accent dark:hover:text-accent-400 transition-colors"
+                  className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
                 >
                   Sign In
                 </Link>
                 <Link
                   to="/register"
-                  className="bg-accent text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-accent-600 transition-colors"
+                  className="bg-gradient-to-r from-primary to-accent text-white px-4 py-2 rounded-full text-sm font-medium hover:opacity-90 transition-opacity"
                 >
                   Sign Up
                 </Link>
@@ -164,8 +165,8 @@ const Header = () => {
                 to={item.href}
                 className={`block px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
                   location.pathname === item.href
-                    ? 'text-accent dark:text-accent-400 bg-primary-50 dark:bg-primary-900/20'
-                    : 'text-gray-700 dark:text-gray-300 hover:text-accent dark:hover:text-accent-400 hover:bg-gray-50 dark:hover:bg-gray-700'
+                    ? 'text-primary dark:text-primary bg-primary/10 dark:bg-primary/20'
+                    : 'text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-700'
                 }`}
                 onClick={() => setIsMenuOpen(false)}
               >

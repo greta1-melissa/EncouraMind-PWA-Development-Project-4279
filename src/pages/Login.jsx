@@ -24,11 +24,16 @@ const Login = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
     // Clear error when user types
     if (errors[name]) {
-      setErrors(prev => ({ ...prev, [name]: '' }));
+      setErrors(prev => ({
+        ...prev,
+        [name]: ''
+      }));
     }
   };
 
@@ -67,7 +72,7 @@ const Login = () => {
         <meta name="description" content="Sign in to your EncouraMind account to access your personal wellness journey." />
       </Helmet>
 
-      <div className="min-h-screen bg-gradient-primary flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+      <div className="min-h-screen bg-gradient-to-br from-primary to-accent flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -75,14 +80,14 @@ const Login = () => {
         >
           <div className="text-center">
             <div className="flex justify-center mb-4">
-              <div className="w-16 h-16 bg-gradient-primary rounded-2xl flex items-center justify-center">
+              <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center">
                 <span className="text-white font-bold text-2xl">E</span>
               </div>
             </div>
             <h2 className="text-3xl font-bold text-white">
               Welcome Back
             </h2>
-            <p className="mt-2 text-sm text-secondary-100">
+            <p className="mt-2 text-sm text-white/80">
               Sign in to continue your wellness journey
             </p>
           </div>
@@ -95,8 +100,8 @@ const Login = () => {
           >
             <form className="space-y-6" onSubmit={handleSubmit}>
               {errors.general && (
-                <div className="bg-accent-50 dark:bg-accent-900/20 border border-accent-200 dark:border-accent-800 rounded-lg p-4">
-                  <p className="text-accent-600 dark:text-accent-400 text-sm">{errors.general}</p>
+                <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4">
+                  <p className="text-red-600 dark:text-red-400 text-sm">{errors.general}</p>
                 </div>
               )}
 
@@ -115,7 +120,7 @@ const Login = () => {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                    className="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-primary focus:border-transparent"
                     placeholder="Enter your email"
                   />
                 </div>
@@ -136,7 +141,7 @@ const Login = () => {
                     required
                     value={formData.password}
                     onChange={handleChange}
-                    className="w-full pl-10 pr-12 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                    className="w-full pl-10 pr-12 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-primary focus:border-transparent"
                     placeholder="Enter your password"
                   />
                   <button
@@ -152,7 +157,7 @@ const Login = () => {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-gradient-primary hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-70 disabled:cursor-not-allowed transition-colors"
+                className="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-gradient-to-r from-primary to-accent hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary disabled:opacity-70 disabled:cursor-not-allowed transition-colors"
               >
                 {isLoading ? (
                   <div className="flex items-center">
@@ -167,7 +172,10 @@ const Login = () => {
               <div className="text-center">
                 <p className="text-sm text-gray-600 dark:text-gray-400">
                   Don't have an account?{' '}
-                  <Link to="/register" className="font-medium text-primary-600 hover:text-primary-500 dark:text-primary-400 dark:hover:text-primary-300">
+                  <Link
+                    to="/register"
+                    className="font-medium text-primary hover:text-accent"
+                  >
                     Sign up
                   </Link>
                 </p>
@@ -182,13 +190,13 @@ const Login = () => {
               <div className="flex flex-col space-y-2">
                 <button
                   onClick={() => fillDemoCredentials('admin')}
-                  className="text-xs text-left text-primary-600 dark:text-primary-400 hover:underline"
+                  className="text-xs text-left text-primary hover:underline"
                 >
                   <strong>Admin:</strong> admin@example.com / admin
                 </button>
                 <button
                   onClick={() => fillDemoCredentials('user')}
-                  className="text-xs text-left text-primary-600 dark:text-primary-400 hover:underline"
+                  className="text-xs text-left text-primary hover:underline"
                 >
                   <strong>User:</strong> user@example.com / password
                 </button>

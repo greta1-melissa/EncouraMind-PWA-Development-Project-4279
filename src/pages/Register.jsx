@@ -22,10 +22,16 @@ const Register = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
 
     if (errors[name]) {
-      setErrors(prev => ({ ...prev, [name]: '' }));
+      setErrors(prev => ({
+        ...prev,
+        [name]: ''
+      }));
     }
   };
 
@@ -58,6 +64,7 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (!validateForm()) return;
 
     const result = await register(formData);
@@ -75,7 +82,7 @@ const Register = () => {
         <meta name="description" content="Create your EncouraMind account to start your personal wellness journey." />
       </Helmet>
 
-      <div className="min-h-screen bg-gradient-primary flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+      <div className="min-h-screen bg-gradient-to-br from-primary to-accent flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -83,14 +90,14 @@ const Register = () => {
         >
           <div className="text-center">
             <div className="flex justify-center mb-4">
-              <div className="w-16 h-16 bg-gradient-primary rounded-2xl flex items-center justify-center">
+              <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center">
                 <span className="text-white font-bold text-2xl">E</span>
               </div>
             </div>
             <h2 className="text-3xl font-bold text-white">
               Create Your Account
             </h2>
-            <p className="mt-2 text-sm text-secondary-100">
+            <p className="mt-2 text-sm text-white/80">
               Join EncouraMind and start your wellness journey today
             </p>
           </div>
@@ -103,8 +110,8 @@ const Register = () => {
           >
             <form className="space-y-6" onSubmit={handleSubmit}>
               {errors.general && (
-                <div className="bg-accent-50 dark:bg-accent-900/20 border border-accent-200 dark:border-accent-800 rounded-lg p-4">
-                  <p className="text-accent-600 dark:text-accent-400 text-sm">{errors.general}</p>
+                <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4">
+                  <p className="text-red-600 dark:text-red-400 text-sm">{errors.general}</p>
                 </div>
               )}
 
@@ -124,13 +131,13 @@ const Register = () => {
                     value={formData.name}
                     onChange={handleChange}
                     className={`w-full pl-10 pr-4 py-3 border ${
-                      errors.name ? 'border-accent-300 dark:border-accent-600' : 'border-gray-300 dark:border-gray-600'
-                    } rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-primary-500 focus:border-transparent`}
+                      errors.name ? 'border-red-300 dark:border-red-600' : 'border-gray-300 dark:border-gray-600'
+                    } rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-primary focus:border-transparent`}
                     placeholder="Enter your full name"
                   />
                 </div>
                 {errors.name && (
-                  <p className="mt-1 text-sm text-accent-600 dark:text-accent-400">{errors.name}</p>
+                  <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.name}</p>
                 )}
               </div>
 
@@ -150,13 +157,13 @@ const Register = () => {
                     value={formData.email}
                     onChange={handleChange}
                     className={`w-full pl-10 pr-4 py-3 border ${
-                      errors.email ? 'border-accent-300 dark:border-accent-600' : 'border-gray-300 dark:border-gray-600'
-                    } rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-primary-500 focus:border-transparent`}
+                      errors.email ? 'border-red-300 dark:border-red-600' : 'border-gray-300 dark:border-gray-600'
+                    } rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-primary focus:border-transparent`}
                     placeholder="Enter your email"
                   />
                 </div>
                 {errors.email && (
-                  <p className="mt-1 text-sm text-accent-600 dark:text-accent-400">{errors.email}</p>
+                  <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.email}</p>
                 )}
               </div>
 
@@ -176,8 +183,8 @@ const Register = () => {
                     value={formData.password}
                     onChange={handleChange}
                     className={`w-full pl-10 pr-12 py-3 border ${
-                      errors.password ? 'border-accent-300 dark:border-accent-600' : 'border-gray-300 dark:border-gray-600'
-                    } rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-primary-500 focus:border-transparent`}
+                      errors.password ? 'border-red-300 dark:border-red-600' : 'border-gray-300 dark:border-gray-600'
+                    } rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-primary focus:border-transparent`}
                     placeholder="Create a password"
                   />
                   <button
@@ -189,7 +196,7 @@ const Register = () => {
                   </button>
                 </div>
                 {errors.password ? (
-                  <p className="mt-1 text-sm text-accent-600 dark:text-accent-400">{errors.password}</p>
+                  <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.password}</p>
                 ) : (
                   <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
                     Password must be at least 6 characters
@@ -213,20 +220,20 @@ const Register = () => {
                     value={formData.confirmPassword}
                     onChange={handleChange}
                     className={`w-full pl-10 pr-4 py-3 border ${
-                      errors.confirmPassword ? 'border-accent-300 dark:border-accent-600' : 'border-gray-300 dark:border-gray-600'
-                    } rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-primary-500 focus:border-transparent`}
+                      errors.confirmPassword ? 'border-red-300 dark:border-red-600' : 'border-gray-300 dark:border-gray-600'
+                    } rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-primary focus:border-transparent`}
                     placeholder="Confirm your password"
                   />
                 </div>
                 {errors.confirmPassword && (
-                  <p className="mt-1 text-sm text-accent-600 dark:text-accent-400">{errors.confirmPassword}</p>
+                  <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.confirmPassword}</p>
                 )}
               </div>
 
               <button
                 type="submit"
                 disabled={isLoading}
-                className="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-gradient-primary hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-70 disabled:cursor-not-allowed transition-colors"
+                className="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-gradient-to-r from-primary to-accent hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary disabled:opacity-70 disabled:cursor-not-allowed transition-colors"
               >
                 {isLoading ? (
                   <div className="flex items-center">
@@ -241,7 +248,10 @@ const Register = () => {
               <div className="text-center">
                 <p className="text-sm text-gray-600 dark:text-gray-400">
                   Already have an account?{' '}
-                  <Link to="/login" className="font-medium text-primary-600 hover:text-primary-500 dark:text-primary-400 dark:hover:text-primary-300">
+                  <Link
+                    to="/login"
+                    className="font-medium text-primary hover:text-accent"
+                  >
                     Sign in
                   </Link>
                 </p>
