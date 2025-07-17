@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Outlet, useLocation } from 'react-router-dom';
+import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import * as FiIcons from 'react-icons/fi';
@@ -12,6 +12,7 @@ const AdminLayout = () => {
   const [isSidebarOpen, setIsSidebarOpen] = React.useState(true);
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = React.useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   const { user, logout } = useAuthStore();
 
   const navigation = [
@@ -28,6 +29,11 @@ const AdminLayout = () => {
 
   const toggleMobileSidebar = () => {
     setIsMobileSidebarOpen(!isMobileSidebarOpen);
+  };
+
+  const handleLogout = () => {
+    logout();
+    navigate('/login');
   };
 
   return (
@@ -49,7 +55,7 @@ const AdminLayout = () => {
             {/* Sidebar header */}
             <div className="flex items-center justify-between px-4 py-5 border-b border-gray-200 dark:border-gray-700">
               <div className={`flex items-center ${!isSidebarOpen && 'lg:justify-center'}`}>
-                <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                <div className="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center">
                   <span className="text-white font-bold text-sm">E</span>
                 </div>
                 {isSidebarOpen && (
@@ -75,11 +81,14 @@ const AdminLayout = () => {
                     to={item.href}
                     className={`flex items-center px-4 py-3 rounded-lg transition-colors ${
                       location.pathname === item.href
-                        ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400'
+                        ? 'bg-primary-50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400'
                         : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
                     } ${!isSidebarOpen && 'lg:justify-center'}`}
                   >
-                    <SafeIcon icon={item.icon} className={`w-6 h-6 ${!isSidebarOpen && 'lg:mr-0'}`} />
+                    <SafeIcon
+                      icon={item.icon}
+                      className={`w-6 h-6 ${!isSidebarOpen && 'lg:mr-0'}`}
+                    />
                     {isSidebarOpen && (
                       <span className="ml-3 text-sm font-medium">{item.name}</span>
                     )}
@@ -91,7 +100,7 @@ const AdminLayout = () => {
             {/* Sidebar footer */}
             <div className="p-4 border-t border-gray-200 dark:border-gray-700">
               <div className="flex items-center">
-                <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+                <div className="w-10 h-10 bg-gradient-primary rounded-full flex items-center justify-center">
                   <span className="text-white text-sm font-medium">
                     {user?.name?.charAt(0) || 'A'}
                   </span>
@@ -107,10 +116,9 @@ const AdminLayout = () => {
                   </div>
                 )}
               </div>
-
               <button
-                onClick={logout}
-                className={`mt-4 flex items-center w-full px-4 py-2 text-sm text-red-600 dark:text-red-400 rounded-lg hover:bg-red-50 dark:hover:bg-red-900/20 ${
+                onClick={handleLogout}
+                className={`mt-4 flex items-center w-full px-4 py-2 text-sm text-accent-600 dark:text-accent-400 rounded-lg hover:bg-accent-50 dark:hover:bg-accent-900/20 ${
                   !isSidebarOpen && 'lg:justify-center'
                 }`}
               >
@@ -149,10 +157,11 @@ const AdminLayout = () => {
                     <SafeIcon icon={FiMenu} className="w-6 h-6" />
                   </button>
                 </div>
+
                 <div className="flex items-center">
                   <Link
                     to="/"
-                    className="px-3 py-1 text-sm text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300"
+                    className="px-3 py-1 text-sm text-primary-600 dark:text-primary-400 hover:text-primary-800 dark:hover:text-primary-300"
                   >
                     View Site
                   </Link>

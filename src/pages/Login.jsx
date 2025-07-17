@@ -15,18 +15,17 @@ const Login = () => {
   });
   const [showPassword, setShowPassword] = useState(false);
   const [errors, setErrors] = useState({});
-  
   const { login, isLoading } = useAuthStore();
   const navigate = useNavigate();
   const location = useLocation();
-  
+
   // Get the intended destination or default to home
   const from = location.state?.from?.pathname || '/';
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
-    
+
     // Clear error when user types
     if (errors[name]) {
       setErrors(prev => ({ ...prev, [name]: '' }));
@@ -36,10 +35,9 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrors({});
-    
+
     // Demo login with admin@example.com / admin or user@example.com / password
     const result = await login(formData);
-    
     if (result.success) {
       navigate(from, { replace: true });
     } else {
@@ -50,9 +48,15 @@ const Login = () => {
   // Auto-fill demo credentials
   const fillDemoCredentials = (type) => {
     if (type === 'admin') {
-      setFormData({ email: 'admin@example.com', password: 'admin' });
+      setFormData({
+        email: 'admin@example.com',
+        password: 'admin'
+      });
     } else {
-      setFormData({ email: 'user@example.com', password: 'password' });
+      setFormData({
+        email: 'user@example.com',
+        password: 'password'
+      });
     }
   };
 
@@ -62,8 +66,8 @@ const Login = () => {
         <title>Sign In - EncouraMind</title>
         <meta name="description" content="Sign in to your EncouraMind account to access your personal wellness journey." />
       </Helmet>
-      
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+
+      <div className="min-h-screen bg-gradient-primary flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -71,14 +75,14 @@ const Login = () => {
         >
           <div className="text-center">
             <div className="flex justify-center mb-4">
-              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center">
+              <div className="w-16 h-16 bg-gradient-primary rounded-2xl flex items-center justify-center">
                 <span className="text-white font-bold text-2xl">E</span>
               </div>
             </div>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
+            <h2 className="text-3xl font-bold text-white">
               Welcome Back
             </h2>
-            <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+            <p className="mt-2 text-sm text-secondary-100">
               Sign in to continue your wellness journey
             </p>
           </div>
@@ -91,8 +95,8 @@ const Login = () => {
           >
             <form className="space-y-6" onSubmit={handleSubmit}>
               {errors.general && (
-                <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4">
-                  <p className="text-red-600 dark:text-red-400 text-sm">{errors.general}</p>
+                <div className="bg-accent-50 dark:bg-accent-900/20 border border-accent-200 dark:border-accent-800 rounded-lg p-4">
+                  <p className="text-accent-600 dark:text-accent-400 text-sm">{errors.general}</p>
                 </div>
               )}
 
@@ -111,7 +115,7 @@ const Login = () => {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                     placeholder="Enter your email"
                   />
                 </div>
@@ -132,7 +136,7 @@ const Login = () => {
                     required
                     value={formData.password}
                     onChange={handleChange}
-                    className="w-full pl-10 pr-12 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full pl-10 pr-12 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                     placeholder="Enter your password"
                   />
                   <button
@@ -148,7 +152,7 @@ const Login = () => {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:bg-blue-400 disabled:cursor-not-allowed transition-colors"
+                className="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-gradient-primary hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-70 disabled:cursor-not-allowed transition-colors"
               >
                 {isLoading ? (
                   <div className="flex items-center">
@@ -163,7 +167,7 @@ const Login = () => {
               <div className="text-center">
                 <p className="text-sm text-gray-600 dark:text-gray-400">
                   Don't have an account?{' '}
-                  <Link to="/register" className="font-medium text-blue-600 hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-300">
+                  <Link to="/register" className="font-medium text-primary-600 hover:text-primary-500 dark:text-primary-400 dark:hover:text-primary-300">
                     Sign up
                   </Link>
                 </p>
@@ -176,15 +180,15 @@ const Login = () => {
                 Demo Credentials:
               </h3>
               <div className="flex flex-col space-y-2">
-                <button 
+                <button
                   onClick={() => fillDemoCredentials('admin')}
-                  className="text-xs text-left text-blue-600 dark:text-blue-400 hover:underline"
+                  className="text-xs text-left text-primary-600 dark:text-primary-400 hover:underline"
                 >
                   <strong>Admin:</strong> admin@example.com / admin
                 </button>
-                <button 
+                <button
                   onClick={() => fillDemoCredentials('user')}
-                  className="text-xs text-left text-blue-600 dark:text-blue-400 hover:underline"
+                  className="text-xs text-left text-primary-600 dark:text-primary-400 hover:underline"
                 >
                   <strong>User:</strong> user@example.com / password
                 </button>

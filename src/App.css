@@ -13,3 +13,38 @@
   display: flex;
   flex-direction: column;
 }
+
+/* Custom button styles */
+.btn {
+  @apply rounded-full px-6 py-3 font-medium transition-all duration-300 inline-flex items-center justify-center shadow-soft;
+}
+
+.btn-sm {
+  @apply px-4 py-2 text-sm;
+}
+
+.btn-primary {
+  @apply bg-primary text-gray-800 hover:bg-primary-600 hover:shadow-soft-lg;
+}
+
+.btn-accent {
+  @apply bg-accent text-white hover:bg-accent-600 hover:shadow-soft-lg;
+}
+
+.btn-secondary {
+  @apply bg-secondary text-gray-800 hover:bg-secondary-600 hover:shadow-soft-lg;
+}
+
+.btn-outline {
+  @apply border-2 border-primary bg-transparent text-primary hover:bg-primary-50;
+}
+
+/* Card styles */
+.card {
+  @apply bg-white rounded-2xl shadow-soft p-6 transition-all duration-300 hover:shadow-soft-lg;
+}
+
+/* Heading styles */
+h1, h2, h3, h4, h5, h6 {
+  @apply font-heading;
+}

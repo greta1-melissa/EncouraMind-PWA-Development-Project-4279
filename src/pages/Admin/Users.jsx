@@ -7,49 +7,49 @@ const { FiSearch, FiFilter, FiEdit, FiTrash2, FiEye, FiUserPlus, FiChevronLeft, 
 
 const AdminUsers = () => {
   const users = [
-    { 
-      id: 1, 
-      name: 'Sarah Miller', 
+    {
+      id: 1,
+      name: 'Sarah Miller',
       email: 'sarah.m@example.com',
       role: 'user',
       status: 'active',
       joined: '2023-05-12'
     },
-    { 
-      id: 2, 
-      name: 'John Davis', 
+    {
+      id: 2,
+      name: 'John Davis',
       email: 'john.d@example.com',
       role: 'user',
       status: 'active',
       joined: '2023-06-24'
     },
-    { 
-      id: 3, 
-      name: 'Amanda Johnson', 
+    {
+      id: 3,
+      name: 'Amanda Johnson',
       email: 'amanda.j@example.com',
       role: 'admin',
       status: 'active',
       joined: '2023-02-15'
     },
-    { 
-      id: 4, 
-      name: 'Michael Brown', 
+    {
+      id: 4,
+      name: 'Michael Brown',
       email: 'michael.b@example.com',
       role: 'user',
       status: 'inactive',
       joined: '2023-07-08'
     },
-    { 
-      id: 5, 
-      name: 'Lisa Wong', 
+    {
+      id: 5,
+      name: 'Lisa Wong',
       email: 'lisa.w@example.com',
       role: 'user',
       status: 'active',
       joined: '2023-08-19'
     },
-    { 
-      id: 6, 
-      name: 'Robert Smith', 
+    {
+      id: 6,
+      name: 'Robert Smith',
       email: 'robert.s@example.com',
       role: 'editor',
       status: 'active',
@@ -113,14 +113,12 @@ const AdminUsers = () => {
             <SafeIcon icon={FiFilter} className="w-4 h-4" />
             <span>Filter</span>
           </button>
-          
           <select className="px-3 py-2 text-sm bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
             <option>All Roles</option>
             <option>Admin</option>
             <option>Editor</option>
             <option>User</option>
           </select>
-          
           <select className="px-3 py-2 text-sm bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
             <option>All Status</option>
             <option>Active</option>
@@ -195,7 +193,6 @@ const AdminUsers = () => {
             </tbody>
           </table>
         </div>
-
         {/* Pagination */}
         <div className="px-4 py-3 flex items-center justify-between border-t border-gray-200 dark:border-gray-700">
           <div className="flex-1 flex justify-between sm:hidden">
@@ -209,7 +206,8 @@ const AdminUsers = () => {
           <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
             <div>
               <p className="text-sm text-gray-700 dark:text-gray-300">
-                Showing <span className="font-medium">1</span> to <span className="font-medium">6</span> of <span className="font-medium">12</span> results
+                Showing <span className="font-medium">1</span> to <span className="font-medium">6</span> of{' '}
+                <span className="font-medium">12</span> results
               </p>
             </div>
             <div>

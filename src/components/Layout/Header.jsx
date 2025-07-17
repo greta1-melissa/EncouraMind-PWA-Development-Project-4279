@@ -27,15 +27,15 @@ const Header = () => {
   ];
 
   return (
-    <header className="bg-white dark:bg-gray-800 shadow-sm sticky top-0 z-50 transition-colors duration-300">
+    <header className="bg-white dark:bg-gray-800 shadow-soft sticky top-0 z-50 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">E</span>
+            <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center">
+              <span className="text-gray-800 font-bold text-xl">E</span>
             </div>
-            <span className="text-xl font-bold text-gray-900 dark:text-white">
+            <span className="text-xl font-bold text-gray-900 dark:text-white font-heading">
               EncouraMind
             </span>
           </Link>
@@ -48,8 +48,8 @@ const Header = () => {
                 to={item.href}
                 className={`text-sm font-medium transition-colors duration-200 ${
                   location.pathname === item.href
-                    ? 'text-blue-600 dark:text-blue-400'
-                    : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400'
+                    ? 'text-accent dark:text-accent-400'
+                    : 'text-gray-700 dark:text-gray-300 hover:text-accent dark:hover:text-accent-400'
                 }`}
               >
                 {item.name}
@@ -74,8 +74,8 @@ const Header = () => {
                   onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
                   className="flex items-center space-x-2 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
                 >
-                  <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
-                    <span className="text-white text-sm font-medium">
+                  <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+                    <span className="text-gray-800 text-sm font-medium">
                       {user?.name?.charAt(0) || 'U'}
                     </span>
                   </div>
@@ -83,13 +83,12 @@ const Header = () => {
                     {user?.name}
                   </span>
                 </button>
-
                 {isUserMenuOpen && (
                   <motion.div
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
-                    className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 py-1"
+                    className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-xl shadow-soft border border-gray-200 dark:border-gray-700 py-1"
                   >
                     <Link
                       to="/profile"
@@ -99,7 +98,6 @@ const Header = () => {
                       <SafeIcon icon={FiUser} className="w-4 h-4" />
                       <span>Profile</span>
                     </Link>
-
                     {user?.role === 'admin' && (
                       <Link
                         to="/admin"
@@ -110,13 +108,12 @@ const Header = () => {
                         <span>Admin Panel</span>
                       </Link>
                     )}
-
                     <button
                       onClick={() => {
                         logout();
                         setIsUserMenuOpen(false);
                       }}
-                      className="flex items-center space-x-2 w-full px-4 py-2 text-sm text-red-600 dark:text-red-400 hover:bg-gray-100 dark:hover:bg-gray-700"
+                      className="flex items-center space-x-2 w-full px-4 py-2 text-sm text-accent dark:text-accent-400 hover:bg-gray-100 dark:hover:bg-gray-700"
                     >
                       <SafeIcon icon={FiLogOut} className="w-4 h-4" />
                       <span>Sign Out</span>
@@ -128,13 +125,13 @@ const Header = () => {
               <div className="flex items-center space-x-4">
                 <Link
                   to="/login"
-                  className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-accent dark:hover:text-accent-400 transition-colors"
                 >
                   Sign In
                 </Link>
                 <Link
                   to="/register"
-                  className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors"
+                  className="bg-accent text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-accent-600 transition-colors"
                 >
                   Sign Up
                 </Link>
@@ -167,8 +164,8 @@ const Header = () => {
                 to={item.href}
                 className={`block px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
                   location.pathname === item.href
-                    ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20'
-                    : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-700'
+                    ? 'text-accent dark:text-accent-400 bg-primary-50 dark:bg-primary-900/20'
+                    : 'text-gray-700 dark:text-gray-300 hover:text-accent dark:hover:text-accent-400 hover:bg-gray-50 dark:hover:bg-gray-700'
                 }`}
                 onClick={() => setIsMenuOpen(false)}
               >
