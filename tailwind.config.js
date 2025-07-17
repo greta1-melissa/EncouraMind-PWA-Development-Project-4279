@@ -2,7 +2,7 @@
 export default {
   content: [
     "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
+    "./src/**/*.{js,jsx,ts,tsx}",
   ],
   darkMode: 'class',
   theme: {
@@ -13,7 +13,7 @@ export default {
           50: '#f0fcfd',
           100: '#e0f9fb',
           200: '#baf2f6',
-          300: '#88dce5', // Main primary color
+          300: '#88dce5',
           400: '#59d0df',
           500: '#33b8c9',
           600: '#2595a9',
@@ -28,7 +28,7 @@ export default {
           100: '#ffe6d8',
           200: '#fecdaf',
           300: '#feac7f',
-          400: '#fe7247', // Main accent color
+          400: '#fe7247',
           500: '#fc4f1d',
           600: '#ed3309',
           700: '#c42409',
@@ -42,7 +42,7 @@ export default {
           100: '#fef4c7',
           200: '#fee789',
           300: '#fdd44b',
-          400: '#f9cc56', // Main secondary color
+          400: '#f9cc56',
           500: '#f7b511',
           600: '#d98c09',
           700: '#b4690a',

@@ -35,31 +35,3 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Nunito Sans', system-ui, sans-serif;
   font-weight: 600;
 }
-
-.btn {
-  @apply rounded-full px-6 py-3 font-medium transition-all duration-300 inline-flex items-center justify-center;
-}
-
-.btn-primary {
-  @apply bg-primary text-gray-800 hover:bg-primary-600 hover:shadow-soft;
-}
-
-.btn-accent {
-  @apply bg-accent text-white hover:bg-accent-600 hover:shadow-soft;
-}
-
-.btn-secondary {
-  @apply bg-secondary text-gray-800 hover:bg-secondary-600 hover:shadow-soft;
-}
-
-.btn-outline {
-  @apply border-2 border-primary bg-transparent text-primary-600 hover:bg-primary-50;
-}
-
-.card {
-  @apply bg-white rounded-2xl shadow-soft p-6 transition-all duration-300 hover:shadow-soft-lg;
-}
-
-.section {
-  @apply py-16 px-4 sm:px-6 lg:px-8;
-}
